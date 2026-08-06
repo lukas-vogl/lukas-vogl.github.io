@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lukas Vogl — doctoral researcher at EPFL working on approximation algorithms, clustering, and discrete optimization.">
+  <meta name="theme-color" content="#f2f0e8">
+  <title>Lukas Vogl — Algorithms &amp; Optimization</title>
+  <script>document.documentElement.classList.add('js');</script>
+  <style>
+    :root {
+      --paper: #f2f0e8;
+      --ink: #171816;
+      --muted: #65665f;
+      --line: #c9c8bf;
+      --blue: #2855e7;
+      --lime: #c8ff52;
+      --coral: #ff654d;
+      --white: #fbfaf5;
+      --display: "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+      --body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: var(--body);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--lime); color: var(--ink); }
+    a { color: inherit; }
+    button { font: inherit; }
+    svg { display: block; }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+      transform: translateY(-150%);
+      padding: .7rem 1rem;
+      color: white;
+      background: var(--ink);
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(23, 24, 22, .16);
+      background: rgba(242, 240, 232, .92);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      width: min(calc(100% - 40px), var(--max));
+      height: 74px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1.5px solid var(--ink);
+      border-radius: 50%;
+      font-family: var(--display);
+      font-size: .83rem;
+      font-weight: 800;
+      letter-spacing: -.03em;
+      text-decoration: none;
+      transition: color .2s, background .2s, transform .2s;
+    }
+
+    .mark:hover { color: var(--white); background: var(--blue); transform: rotate(-7deg); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:not(.nav-cta) { position: relative; }
+    .nav-links a:not(.nav-cta)::after {
+      position: absolute;
+      right: 0;
+      bottom: -6px;
+      left: 0;
+      height: 2px;
+      content: "";
+      background: var(--blue);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .2s;
+    }
+
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 1rem;
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--ink);
+      transition: background .2s, transform .2s;
+    }
+
+    .nav-cta:hover { background: var(--blue); transform: translateY(-2px); }
+
+    .menu-toggle {
+      display: none;
+      padding: .5rem;
+      border: 0;
+      color: var(--ink);
+      background: transparent;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 74px);
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      content: "";
+      background-image: linear-gradient(rgba(23,24,22,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(23,24,22,.055) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 92%);
+    }
+
+    .hero-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.16fr) minmax(360px, .84fr);
+      gap: clamp(2rem, 6vw, 7rem);
+      align-items: center;
+      padding: 7rem 0 5.5rem;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin: 0 0 2rem;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      content: "";
+      background: var(--coral);
+      box-shadow: 0 0 0 6px rgba(255, 101, 77, .14);
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-bottom: 1.8rem;
+      font-family: var(--display);
+      font-size: clamp(4.7rem, 9.4vw, 9.25rem);
+      font-weight: 800;
+      letter-spacing: -.085em;
+      line-height: .79;
+      text-transform: uppercase;
+    }
+
+    .hero h1 span { display: block; }
+    .hero h1 .outline {
+      color: transparent;
+      -webkit-text-stroke: 2px var(--ink);
+      text-stroke: 2px var(--ink);
+    }
+
+    .hero-intro {
+      max-width: 650px;
+      margin-bottom: 2rem;
+      font-size: clamp(1.12rem, 1.7vw, 1.42rem);
+      line-height: 1.45;
+    }
+
+    .hero-intro strong { font-weight: 700; }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .65rem;
+      min-height: 48px;
+      padding: 0 1.25rem;
+      border: 1.5px solid var(--ink);
+      border-radius: 999px;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .075em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .2s, background .2s, transform .2s, box-shadow .2s;
+    }
+
+    .button:hover { transform: translateY(-3px); box-shadow: 0 5px 0 var(--ink); }
+    .button.primary { color: var(--white); background: var(--blue); }
+    .button.secondary { background: transparent; }
+    .button svg { width: 15px; height: 15px; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 510px;
+      display: grid;
+      place-items: center;
+    }
+
+    .diagram {
+      width: min(100%, 520px);
+      overflow: visible;
+      filter: drop-shadow(0 25px 35px rgba(23,24,22,.08));
+    }
+
+    .profile-frame {
+      position: absolute;
+      z-index: 2;
+      width: clamp(235px, 24vw, 320px);
+      aspect-ratio: 1;
+      margin: 0;
+      padding: 8px;
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      background: var(--paper);
+      box-shadow: 14px 14px 0 var(--blue);
+      transform: rotate(2deg);
+      transition: transform .3s, box-shadow .3s;
+    }
+
+    .profile-frame:hover {
+      box-shadow: 9px 9px 0 var(--coral);
+      transform: rotate(0deg) translateY(-4px);
+    }
+
+    .profile-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 42%;
+    }
+
+    .diagram .ring { fill: none; stroke: var(--ink); stroke-width: 1.25; stroke-dasharray: 5 7; opacity: .28; }
+    .diagram .edge { stroke: var(--ink); stroke-width: 1.2; opacity: .35; }
+    .diagram .edge.hot { stroke: var(--blue); stroke-width: 3; opacity: 1; }
+    .diagram .node { stroke: var(--ink); stroke-width: 2; }
+    .diagram .node-blue { fill: var(--blue); }
+    .diagram .node-lime { fill: var(--lime); }
+    .diagram .node-coral { fill: var(--coral); }
+    .diagram .node-paper { fill: var(--paper); }
+    .diagram .orbit { transform-origin: 260px 260px; animation: orbit 28s linear infinite; }
+    .diagram .orbit.reverse { animation-direction: reverse; animation-duration: 36s; }
+    .diagram text { fill: var(--ink); font: 800 12px var(--body); letter-spacing: .12em; }
+
+    @keyframes orbit { to { transform: rotate(360deg); } }
+
+    .visual-label {
+      position: absolute;
+      z-index: 3;
+      right: 0;
+      bottom: 2rem;
+      width: 180px;
+      padding: 1rem 1.1rem;
+      border: 1.5px solid var(--ink);
+      background: var(--lime);
+      transform: rotate(-3deg);
+    }
+
+    .visual-label span { display: block; font-size: .65rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+    .visual-label strong { display: block; margin-top: .3rem; font-family: var(--display); font-size: 1.25rem; line-height: 1.05; }
+
+    .marquee {
+      overflow: hidden;
+      border-bottom: 1px solid var(--ink);
+      color: var(--white);
+      background: var(--ink);
+    }
+
+    .marquee-track {
+      width: max-content;
+      display: flex;
+      align-items: center;
+      animation: scroll 25s linear infinite;
+    }
+
+    .marquee p {
+      margin: 0;
+      padding: .9rem 1.8rem .85rem 0;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .marquee p span { color: var(--lime); padding-inline: 1.8rem; }
+    @keyframes scroll { to { transform: translateX(-50%); } }
+
+    section { border-bottom: 1px solid var(--line); }
+    .section-pad { padding: clamp(5rem, 9vw, 8.5rem) 0; }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 1fr 2.15fr;
+      gap: 2rem;
+      align-items: start;
+      margin-bottom: clamp(3.2rem, 6vw, 5.5rem);
+    }
+
+    .kicker {
+      margin: .3rem 0 0;
+      color: var(--blue);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .section-heading h2 {
+      max-width: 880px;
+      margin: 0;
+      font-family: var(--display);
+      font-size: clamp(2.9rem, 5.5vw, 5.6rem);
+      font-weight: 800;
+      letter-spacing: -.065em;
+      line-height: .94;
+      text-transform: uppercase;
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+    }
+
+    .research-card {
+      position: relative;
+      min-height: 430px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(1.5rem, 3vw, 2.3rem);
+      border: 1.5px solid var(--ink);
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .research-card:hover { transform: translateY(-5px); box-shadow: 8px 8px 0 var(--ink); }
+    .research-card.featured { grid-column: span 7; color: var(--white); background: var(--blue); }
+    .research-card.secondary-card { grid-column: span 5; background: var(--lime); }
+    .research-card.tertiary-card { grid-column: span 12; min-height: 310px; display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; color: var(--white); background: var(--ink); }
+
+    .card-index { font-size: .68rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    .card-copy { position: relative; z-index: 2; }
+    .research-card h3 {
+      max-width: 720px;
+      margin-bottom: 1rem;
+      font-family: var(--display);
+      font-size: clamp(2rem, 3.6vw, 3.9rem);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      line-height: .97;
+      text-transform: uppercase;
+    }
+
+    .research-card p { max-width: 630px; margin-bottom: 1.6rem; font-size: 1rem; }
+    .research-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .research-card a::after { content: "↗"; font-size: 1rem; transition: transform .2s; }
+    .research-card a:hover::after { transform: translate(3px, -3px); }
+
+    .cluster-motif {
+      position: absolute;
+      top: -25px;
+      right: -45px;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(255,255,255,.36);
+      border-radius: 50%;
+    }
+
+    .cluster-motif::before,
+    .cluster-motif::after {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .cluster-motif::before { inset: 42px; background: rgba(200,255,82,.18); }
+    .cluster-motif::after { inset: 92px; background: var(--lime); }
+
+    .formula {
+      align-self: center;
+      justify-self: end;
+      font-family: Georgia, serif;
+      font-size: clamp(2rem, 5vw, 5.5rem);
+      font-style: italic;
+      letter-spacing: -.05em;
+      white-space: nowrap;
+      opacity: .92;
+    }
+
+    .publications { background: var(--white); }
+
+    .pub-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+      padding-bottom: 1rem;
+      border-bottom: 1.5px solid var(--ink);
+    }
+
+    .pub-count { margin: 0; font-size: .72rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+
+    .filters { display: flex; flex-wrap: wrap; gap: .45rem; }
+    .filter {
+      min-height: 34px;
+      padding: 0 .85rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      color: var(--ink);
+      background: transparent;
+      cursor: pointer;
+      font-size: .67rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .filter[aria-pressed="true"] { color: var(--white); background: var(--ink); }
+
+    .publication {
+      display: grid;
+      grid-template-columns: 85px minmax(0, 1fr) auto;
+      gap: clamp(1rem, 3vw, 3rem);
+      align-items: start;
+      padding: 2.25rem .25rem;
+      border-bottom: 1px solid var(--line);
+      transition: padding .2s, background .2s;
+    }
+
+    .publication:hover { padding-right: 1rem; padding-left: 1rem; background: var(--paper); }
+    .publication[hidden] { display: none; }
+
+    .pub-year { color: var(--blue); font-size: .8rem; font-weight: 800; letter-spacing: .08em; }
+    .pub-venue {
+      display: inline-flex;
+      margin-bottom: .65rem;
+      padding: .25rem .5rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .publication h3 {
+      max-width: 820px;
+      margin-bottom: .7rem;
+      font-family: var(--display);
+      font-size: clamp(1.35rem, 2.3vw, 2rem);
+      font-weight: 750;
+      letter-spacing: -.035em;
+      line-height: 1.1;
+    }
+
+    .authors { max-width: 850px; margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.55; }
+    .authors strong { color: var(--ink); }
+
+    .pub-links { display: flex; gap: .45rem; }
+    .pub-links a {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--ink);
+      border-radius: 50%;
+      text-decoration: none;
+      transition: color .2s, background .2s, transform .2s;
+    }
+
+    .pub-links a:hover { color: var(--white); background: var(--blue); transform: rotate(-8deg); }
+    .pub-links svg { width: 17px; height: 17px; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(300px, .65fr);
+      gap: clamp(3rem, 9vw, 9rem);
+      align-items: start;
+    }
+
+    .about-copy .lead {
+      max-width: 790px;
+      margin-bottom: 2.25rem;
+      font-family: var(--display);
+      font-size: clamp(2rem, 3.7vw, 3.75rem);
+      font-weight: 700;
+      letter-spacing: -.05em;
+      line-height: 1.07;
+    }
+
+    .about-copy .lead .highlight { padding: 0 .12em; background: linear-gradient(transparent 58%, var(--lime) 58%); }
+    .about-copy > p:not(.lead) { max-width: 700px; color: var(--muted); font-size: 1.02rem; }
+
+    .details { border-top: 1.5px solid var(--ink); }
+    .detail-row {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1rem;
+      padding: 1.2rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-row dt { font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .detail-row dd { margin: 0; font-size: .9rem; }
+    .detail-row a { text-underline-offset: 3px; }
+
+    .contact {
+      color: var(--white);
+      background: var(--blue);
+      border-bottom: 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 3rem;
+      align-items: end;
+    }
+
+    .contact h2 {
+      max-width: 850px;
+      margin-bottom: 1.4rem;
+      font-family: var(--display);
+      font-size: clamp(3.8rem, 8.5vw, 9rem);
+      font-weight: 800;
+      letter-spacing: -.075em;
+      line-height: .83;
+      text-transform: uppercase;
+    }
+
+    .contact h2 span { color: var(--lime); }
+    .contact-copy { max-width: 600px; margin-bottom: 0; font-size: 1.12rem; }
+    .contact-actions { display: flex; flex-direction: column; align-items: flex-start; gap: .8rem; }
+    .contact .button { border-color: var(--white); color: var(--ink); background: var(--lime); }
+    .contact .button:hover { box-shadow: 0 5px 0 var(--white); }
+    .plain-link { font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-underline-offset: 4px; text-transform: uppercase; }
+
+    footer { color: var(--white); background: var(--ink); }
+    .footer-grid {
+      min-height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    .footer-grid p { margin: 0; color: #b8b9b3; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+    .footer-links a { font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-underline-offset: 4px; text-transform: uppercase; }
+
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+    .js .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 900px) {
+      .hero { min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; padding-top: 5rem; }
+      .hero-visual { min-height: 430px; }
+      .diagram { width: min(90%, 470px); }
+      .section-heading { grid-template-columns: 1fr; }
+      .research-card.featured, .research-card.secondary-card { grid-column: span 12; }
+      .research-card.tertiary-card { grid-template-columns: 1fr; }
+      .formula { justify-self: start; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .contact-actions { margin-top: 1rem; }
+    }
+
+    @media (max-width: 720px) {
+      .nav { width: min(calc(100% - 28px), var(--max)); }
+      .menu-toggle { display: block; cursor: pointer; }
+      .nav-links {
+        position: absolute;
+        top: 73px;
+        right: 0;
+        left: 0;
+        display: none;
+        align-items: stretch;
+        gap: 0;
+        padding: 1rem 20px 1.35rem;
+        border-bottom: 1px solid var(--ink);
+        background: var(--paper);
+      }
+
+      .nav-links.open { display: grid; }
+      .nav-links a { display: block; padding: .9rem 0; }
+      .nav-links .nav-cta { display: inline-flex; width: fit-content; padding: 0 1rem; }
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .hero-grid { padding: 4rem 0 3.5rem; }
+      .hero h1 { font-size: clamp(4rem, 21vw, 6.5rem); }
+      .hero h1 .outline { -webkit-text-stroke-width: 1.5px; }
+      .hero-visual { min-height: 340px; }
+      .profile-frame { width: clamp(215px, 62vw, 280px); box-shadow: 10px 10px 0 var(--blue); }
+      .visual-label { right: .5rem; bottom: 0; width: 150px; }
+      .research-card { min-height: 380px; }
+      .research-card.tertiary-card { min-height: 360px; }
+      .publication { grid-template-columns: 58px minmax(0, 1fr); }
+      .pub-links { grid-column: 2; }
+      .footer-grid { align-items: flex-start; flex-direction: column; justify-content: center; }
+    }
+
+    @media (max-width: 470px) {
+      .hero-actions .button { width: 100%; }
+      .publication { grid-template-columns: 1fr; }
+      .pub-links { grid-column: 1; }
+      .section-pad { padding: 4.5rem 0; }
+      .detail-row { grid-template-columns: 72px 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="mark" href="#top" aria-label="Lukas Vogl — home">LV</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#research">Research</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="nav-cta" href="mailto:lukas.vogl@epfl.ch">Get in touch</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Theory · Algorithms · Optimization</p>
+          <h1><span>Lukas</span><span class="outline">Vogl</span></h1>
+          <p class="hero-intro">I am a doctoral researcher at <strong>EPFL</strong>, working on approximation algorithms, clustering, and discrete optimization. I look for clean mathematical structure that leads to fast algorithms with rigorous guarantees.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#publications">Explore my work <span aria-hidden="true">↓</span></a>
+            <a class="button secondary" href="https://dblp.org/pid/321/3693.html" target="_blank" rel="noopener noreferrer">DBLP profile <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <svg class="diagram" viewBox="0 0 520 520" aria-hidden="true" focusable="false">
+            <circle cx="260" cy="260" r="215" fill="#fbfaf5" stroke="#171816" stroke-width="1.5"/>
+            <circle class="ring" cx="260" cy="260" r="169"/>
+            <circle class="ring" cx="260" cy="260" r="104"/>
+            <g class="orbit">
+              <line class="edge" x1="260" y1="80" x2="397" y2="185"/>
+              <line class="edge hot" x1="397" y1="185" x2="350" y2="375"/>
+              <line class="edge" x1="350" y1="375" x2="165" y2="390"/>
+              <line class="edge" x1="165" y1="390" x2="112" y2="204"/>
+              <line class="edge hot" x1="112" y1="204" x2="260" y2="80"/>
+              <line class="edge" x1="112" y1="204" x2="350" y2="375"/>
+              <circle class="node node-coral" cx="260" cy="80" r="20"/>
+              <circle class="node node-paper" cx="397" cy="185" r="14"/>
+              <circle class="node node-lime" cx="350" cy="375" r="26"/>
+              <circle class="node node-paper" cx="165" cy="390" r="13"/>
+              <circle class="node node-blue" cx="112" cy="204" r="23"/>
+            </g>
+            <g class="orbit reverse">
+              <line class="edge" x1="260" y1="158" x2="334" y2="252"/>
+              <line class="edge" x1="334" y1="252" x2="245" y2="335"/>
+              <line class="edge hot" x1="245" y1="335" x2="188" y2="246"/>
+              <line class="edge" x1="188" y1="246" x2="260" y2="158"/>
+              <circle class="node node-paper" cx="260" cy="158" r="10"/>
+              <circle class="node node-coral" cx="334" cy="252" r="15"/>
+              <circle class="node node-blue" cx="245" cy="335" r="12"/>
+              <circle class="node node-lime" cx="188" cy="246" r="17"/>
+            </g>
+            <circle class="node node-blue" cx="260" cy="260" r="38"/>
+            <text x="260" y="265" text-anchor="middle" fill="#fff" style="fill:#fff">OPT</text>
+          </svg>
+          <figure class="profile-frame">
+            <img src="profile-photo.jpg" alt="Portrait of Lukas Vogl" width="1000" height="1000" fetchpriority="high">
+          </figure>
+          <div class="visual-label"><span>Current focus</span><strong>Provably better clustering</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <p>Approximation algorithms <span>●</span> Correlation clustering <span>●</span> Linear programming <span>●</span> Discrete optimization <span>●</span> Dynamic algorithms <span>●</span></p>
+        <p>Approximation algorithms <span>●</span> Correlation clustering <span>●</span> Linear programming <span>●</span> Discrete optimization <span>●</span> Dynamic algorithms <span>●</span></p>
+      </div>
+    </div>
+
+    <section class="section-pad" id="research">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="kicker">01 / Research</p>
+          <h2>Algorithms at the edge of the possible.</h2>
+        </div>
+
+        <div class="research-grid">
+          <article class="research-card featured reveal">
+            <span class="card-index">Focus 01 / Clustering</span>
+            <span class="cluster-motif"></span>
+            <div class="card-copy">
+              <h3>Correlation clustering</h3>
+              <p>Designing stronger relaxations and rounding methods for clustering inconsistent pairwise information—with sharper approximation guarantees and a unified LP perspective.</p>
+              <a href="https://doi.org/10.1145/3618260.3649749" target="_blank" rel="noopener noreferrer">Read the STOC paper</a>
+            </div>
+          </article>
+
+          <article class="research-card secondary-card reveal">
+            <span class="card-index">Focus 02 / Fast algorithms</span>
+            <div class="card-copy">
+              <h3>Sublinear &amp; dynamic</h3>
+              <p>Turning powerful but expensive algorithmic ideas into practical frameworks that operate in near-linear time or maintain solutions under continuous updates.</p>
+              <a href="https://arxiv.org/abs/2503.20883" target="_blank" rel="noopener noreferrer">View recent work</a>
+            </div>
+          </article>
+
+          <article class="research-card tertiary-card reveal">
+            <div>
+              <span class="card-index">Focus 03 / Optimization</span>
+              <div class="card-copy" style="margin-top: 3rem">
+                <h3>Combinatorial structure</h3>
+                <p>Studying graph problems, matching, and linear relaxations to understand where structural insight can unlock efficient algorithms.</p>
+              </div>
+            </div>
+            <div class="formula" aria-hidden="true">min&nbsp; cᵀx</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="publications section-pad" id="publications">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="kicker">02 / Publications</p>
+          <h2>Selected papers &amp; preprints.</h2>
+        </div>
+
+        <div class="pub-toolbar reveal">
+          <p class="pub-count"><span id="visible-count">5</span> research works</p>
+          <div class="filters" aria-label="Filter publications by year">
+            <button class="filter" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter" type="button" data-filter="2026" aria-pressed="false">2026</button>
+            <button class="filter" type="button" data-filter="2025" aria-pressed="false">2025</button>
+            <button class="filter" type="button" data-filter="2024" aria-pressed="false">2024</button>
+          </div>
+        </div>
+
+        <div class="publication-list">
+          <article class="publication reveal" data-year="2026">
+            <div class="pub-year">2026</div>
+            <div>
+              <span class="pub-venue">ICALP 2026</span>
+              <h3>Static to Dynamic Correlation Clustering</h3>
+              <p class="authors">Nairen Cao, Vincent Cohen-Addad, Euiwoong Lee, Shi Li, David Rasmussen Lolck, Alantha Newman, Mikkel Thorup, <strong>Lukas Vogl</strong>, Shuyi Yan, Hanwen Zhang</p>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2504.12060" target="_blank" rel="noopener noreferrer" aria-label="Read Static to Dynamic Correlation Clustering on arXiv" title="arXiv">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v5h5M9 13h6M9 17h6"/></svg>
+              </a>
+              <a href="https://dblp.org/rec/conf/icalp/CaoCLLLNTVYZ26" target="_blank" rel="noopener noreferrer" aria-label="View DBLP record" title="DBLP">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 4H4v16h4M16 4h4v16h-4M9 8l6 8M15 8l-6 8"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="publication reveal" data-year="2025">
+            <div class="pub-year">2025</div>
+            <div>
+              <span class="pub-venue">STOC 2025</span>
+              <h3>Solving the Correlation Cluster LP in Sublinear Time</h3>
+              <p class="authors">Nairen Cao, Vincent Cohen-Addad, Euiwoong Lee, Shi Li, David Rasmussen Lolck, Alantha Newman, Mikkel Thorup, <strong>Lukas Vogl</strong>, Shuyi Yan, Hanwen Zhang</p>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2503.20883" target="_blank" rel="noopener noreferrer" aria-label="Read Solving the Correlation Cluster LP in Sublinear Time on arXiv" title="arXiv">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v5h5M9 13h6M9 17h6"/></svg>
+              </a>
+              <a href="https://dblp.org/rec/conf/stoc/CaoCL0LNTVY025" target="_blank" rel="noopener noreferrer" aria-label="View DBLP record" title="DBLP">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 4H4v16h4M16 4h4v16h-4M9 8l6 8M15 8l-6 8"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="publication reveal" data-year="2025">
+            <div class="pub-year">2025</div>
+            <div>
+              <span class="pub-venue">Preprint</span>
+              <h3>Second Price Matching with Complete Allocation and Degree Constraints</h3>
+              <p class="authors">Rom Pinchasi, Neta Singer, <strong>Lukas Vogl</strong>, Jiaye Wei</p>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2505.06005" target="_blank" rel="noopener noreferrer" aria-label="Read Second Price Matching with Complete Allocation and Degree Constraints on arXiv" title="arXiv">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v5h5M9 13h6M9 17h6"/></svg>
+              </a>
+              <a href="https://dblp.org/rec/journals/corr/abs-2505-06005" target="_blank" rel="noopener noreferrer" aria-label="View DBLP record" title="DBLP">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 4H4v16h4M16 4h4v16h-4M9 8l6 8M15 8l-6 8"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="publication reveal" data-year="2024">
+            <div class="pub-year">2024</div>
+            <div>
+              <span class="pub-venue">STOC 2024</span>
+              <h3>Understanding the Cluster Linear Program for Correlation Clustering</h3>
+              <p class="authors">Nairen Cao, Vincent Cohen-Addad, Euiwoong Lee, Shi Li, Alantha Newman, <strong>Lukas Vogl</strong></p>
+            </div>
+            <div class="pub-links">
+              <a href="https://arxiv.org/abs/2404.17509" target="_blank" rel="noopener noreferrer" aria-label="Read Understanding the Cluster Linear Program for Correlation Clustering on arXiv" title="arXiv">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 2h8l4 4v16H6z"/><path d="M14 2v5h5M9 13h6M9 17h6"/></svg>
+              </a>
+              <a href="https://dblp.org/rec/conf/stoc/CaoCL0NV24" target="_blank" rel="noopener noreferrer" aria-label="View DBLP record" title="DBLP">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 4H4v16h4M16 4h4v16h-4M9 8l6 8M15 8l-6 8"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="publication reveal" data-year="2024">
+            <div class="pub-year">2024</div>
+            <div>
+              <span class="pub-venue">Discrete Mathematics</span>
+              <h3>The Connection of the Acyclic Disconnection and Feedback Arc Sets — On an Open Problem of Figueroa et al.</h3>
+              <p class="authors">Laura Vargas Koch, <strong>Lukas Vogl</strong></p>
+            </div>
+            <div class="pub-links">
+              <a href="https://dblp.org/rec/journals/dm/KochV24" target="_blank" rel="noopener noreferrer" aria-label="View DBLP record for The Connection of the Acyclic Disconnection and Feedback Arc Sets" title="DBLP">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M8 4H4v16h4M16 4h4v16h-4M9 8l6 8M15 8l-6 8"/></svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section-pad" id="about">
+      <div class="wrap">
+        <div class="section-heading reveal">
+          <p class="kicker">03 / About</p>
+          <h2>Curious about the structure behind hard problems.</h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p class="lead">I am a PhD student in computer science at EPFL, advised by <span class="highlight">Ola Svensson</span> and <span class="highlight">Friedrich Eisenbrand</span>.</p>
+            <p>My research lives at the intersection of theoretical computer science and discrete mathematics. I am especially interested in approximation algorithms, linear programming relaxations, graph algorithms, and the challenge of making sophisticated methods genuinely fast.</p>
+            <p>I am part of EPFL’s Theory of Computation Laboratory and Chair of Discrete Optimization in Lausanne, Switzerland.</p>
+          </div>
+
+          <dl class="details reveal">
+            <div class="detail-row">
+              <dt>Based</dt>
+              <dd>Lausanne, Switzerland</dd>
+            </div>
+            <div class="detail-row">
+              <dt>Role</dt>
+              <dd>Doctoral Assistant, EPFL</dd>
+            </div>
+            <div class="detail-row">
+              <dt>Groups</dt>
+              <dd><a href="https://theory.epfl.ch" target="_blank" rel="noopener noreferrer">Theory of Computation</a><br><a href="https://disopt.epfl.ch" target="_blank" rel="noopener noreferrer">Discrete Optimization</a></dd>
+            </div>
+            <div class="detail-row">
+              <dt>Profiles</dt>
+              <dd><a href="https://dblp.org/pid/321/3693.html" target="_blank" rel="noopener noreferrer">DBLP</a> · <a href="https://orcid.org/0000-0002-8241-536X" target="_blank" rel="noopener noreferrer">ORCID</a> · <a href="https://people.epfl.ch/lukas.vogl/?lang=en" target="_blank" rel="noopener noreferrer">EPFL</a></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact section-pad" id="contact">
+      <div class="wrap contact-grid">
+        <div class="reveal">
+          <p class="kicker" style="color:var(--lime)">04 / Contact</p>
+          <h2>Let’s talk <span>theory.</span></h2>
+          <p class="contact-copy">Interested in algorithms, clustering, or a possible collaboration? I’m always happy to hear about a good problem.</p>
+        </div>
+        <div class="contact-actions reveal">
+          <a class="button" href="mailto:lukas.vogl@epfl.ch">lukas.vogl@epfl.ch <span aria-hidden="true">↗</span></a>
+          <a class="plain-link" href="https://people.epfl.ch/lukas.vogl/?lang=en" target="_blank" rel="noopener noreferrer">Find me at EPFL ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <p>© 2026 Lukas Vogl · Built for curious minds</p>
+      <div class="footer-links">
+        <a href="https://dblp.org/pid/321/3693.html" target="_blank" rel="noopener noreferrer">DBLP</a>
+        <a href="https://orcid.org/0000-0002-8241-536X" target="_blank" rel="noopener noreferrer">ORCID</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuButton.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      menuButton.textContent = isOpen ? 'Close' : 'Menu';
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        menuButton.setAttribute('aria-expanded', 'false');
+        menuButton.textContent = 'Menu';
+      });
+    });
+
+    const filters = document.querySelectorAll('.filter');
+    const publications = document.querySelectorAll('.publication');
+    const visibleCount = document.querySelector('#visible-count');
+
+    filters.forEach((filterButton) => {
+      filterButton.addEventListener('click', () => {
+        const selectedYear = filterButton.dataset.filter;
+        let count = 0;
+
+        filters.forEach((button) => button.setAttribute('aria-pressed', String(button === filterButton)));
+        publications.forEach((publication) => {
+          const show = selectedYear === 'all' || publication.dataset.year === selectedYear;
+          publication.hidden = !show;
+          if (show) count += 1;
+        });
+
+        visibleCount.textContent = count;
+      });
+    });
+
+    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
+    } else {
+      document.querySelectorAll('.reveal').forEach((element) => element.classList.add('visible'));
+    }
+  </script>
+</body>
+</html>
