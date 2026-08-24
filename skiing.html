@@ -96,7 +96,7 @@
       background: linear-gradient(180deg, rgba(3, 10, 18, .42) 0%, transparent 34%, rgba(3, 10, 18, .2) 62%, rgba(3, 10, 18, .92) 100%);
     }
 
-    .hero img {
+    .hero > img {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -111,6 +111,10 @@
       width: min(100% - 2.4rem, 1180px);
       margin: 0 auto;
       padding-bottom: clamp(2.8rem, 7vw, 6rem);
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: clamp(1.5rem, 5vw, 4rem);
     }
 
     .eyebrow {
@@ -138,26 +142,10 @@
       padding: clamp(4rem, 9vw, 8rem) 0;
     }
 
-    .intro {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 2rem 5rem;
-      align-items: center;
-      margin-bottom: clamp(3rem, 7vw, 6rem);
-    }
-
-    .intro h2 {
-      margin: 0;
-      font-family: var(--serif);
-      font-size: clamp(2.1rem, 5vw, 4.2rem);
-      font-weight: 400;
-      letter-spacing: -.035em;
-      line-height: 1;
-    }
-
-    .intro p {
-      margin: .25rem 0 0;
+    .gallery-intro {
       max-width: 32rem;
+      margin-bottom: clamp(3rem, 7vw, 6rem);
+      margin-top: 0;
       color: var(--muted);
       font-size: clamp(1rem, 2vw, 1.2rem);
     }
@@ -166,8 +154,10 @@
       display: block;
       width: clamp(145px, 16vw, 185px);
       height: auto;
-      border: 1px solid var(--line);
+      flex: 0 0 auto;
+      border: 1px solid rgba(255, 255, 255, .55);
       border-radius: 3px;
+      box-shadow: 0 1rem 3rem rgba(0, 0, 0, .3);
     }
 
     .gallery {
@@ -181,11 +171,11 @@
       background: var(--panel);
     }
 
-    .gallery > figure:nth-child(1) { grid-column: span 7; }
-    .gallery > figure:nth-child(2) { grid-column: span 5; align-self: end; }
-    .gallery > figure:nth-child(3) { grid-column: 2 / span 5; }
-    .gallery > figure:nth-child(4) { grid-column: 7 / span 5; margin-top: clamp(1rem, 7vw, 6rem); }
-    .gallery > figure:nth-child(5) { grid-column: 4 / span 6; margin-top: clamp(1rem, 4vw, 3rem); }
+    .photo-a { grid-column: span 7; }
+    .photo-b { grid-column: span 5; align-self: end; }
+    .photo-c { grid-column: 2 / span 5; }
+    .photo-d { grid-column: 7 / span 5; margin-top: clamp(1rem, 7vw, 6rem); }
+    .photo-e { grid-column: 4 / span 6; margin-top: clamp(1rem, 4vw, 3rem); }
     figure img {
       display: block;
       width: 100%;
@@ -193,18 +183,15 @@
       background: #dce9f1;
     }
 
-    .video-gallery {
-      margin-top: clamp(3rem, 7vw, 6rem);
-    }
-
-    .video-gallery > figure {
+    .video-item {
+      grid-column: 3 / span 8;
       min-height: 100svh;
       display: grid;
       place-items: center;
       background: transparent;
     }
 
-    .video-gallery video {
+    .video-item video {
       display: block;
       width: auto;
       max-width: 100%;
@@ -230,11 +217,11 @@
 
     @media (max-width: 720px) {
       .hero { min-height: 74vh; }
-      .intro { grid-template-columns: 1fr; }
-      .ski-profile { width: min(52vw, 180px); }
+      .hero-copy { gap: 1.25rem; }
+      .ski-profile { width: min(30vw, 125px); }
       .gallery { grid-template-columns: 1fr; }
-      .gallery > figure:nth-child(n) { grid-column: 1; margin-top: 0; }
-      .video-gallery video { height: auto; width: 100%; }
+      .gallery > figure.photo, .gallery > figure.video-item { grid-column: 1; margin-top: 0; }
+      .video-item video { height: auto; width: 100%; }
       footer { flex-direction: column; }
     }
 
@@ -253,52 +240,46 @@
     </nav>
     <img src="skiing/alpine-panorama.jpg" alt="Panoramic view of snow-covered alpine peaks and a glacier" width="1086" height="724" fetchpriority="high">
     <div class="hero-copy">
-      <p class="eyebrow">Away from the desk</p>
-      <h1>Skiing</h1>
+      <div>
+        <p class="eyebrow">Away from the desk</p>
+        <h1>Skiing</h1>
+      </div>
+      <img class="ski-profile" src="skiing/blue-sky.jpg" alt="Lukas wearing ski-touring gear beneath a clear blue sky" width="1350" height="1800">
     </div>
   </header>
 
   <main id="gallery">
-    <section class="intro" aria-labelledby="gallery-title">
-      <div>
-        <h2 id="gallery-title">Days in the mountains</h2>
-        <p>Ski touring, long approaches, high ridges, and the quiet of open snow.</p>
-      </div>
-      <img class="ski-profile" src="skiing/blue-sky.jpg" alt="Lukas wearing ski-touring gear beneath a clear blue sky" width="1350" height="1800">
-    </section>
+    <p class="gallery-intro">Long approaches, high ridges, and some great lines.</p>
 
     <div class="gallery">
-      <figure>
+      <figure class="photo photo-a">
         <img src="skiing/glacier.jpg" alt="Skiers descending across a glacier beneath snow-covered peaks" width="1350" height="1800" loading="lazy">
       </figure>
-      <figure>
+      <figure class="photo photo-b">
         <img src="skiing/approach.jpg" alt="Ski tourers carrying skis along a trail through an alpine forest" width="1350" height="1800" loading="lazy">
       </figure>
-      <figure>
-        <img src="skiing/high-alpine-descent.jpg" alt="Skier descending above a broad snow-covered alpine landscape" width="768" height="1024" loading="lazy">
-      </figure>
-      <figure>
-        <img src="skiing/ridge-crossing.jpg" alt="Ski tourers crossing a narrow snowy ridge beneath high peaks" width="768" height="1024" loading="lazy">
-      </figure>
-      <figure>
-        <img src="skiing/spring-tour.jpg" alt="Ski tourer holding skis beneath a rocky snow-covered mountain face" width="768" height="1024" loading="lazy">
-      </figure>
-    </div>
-
-    <div class="video-gallery" aria-label="Skiing videos">
-      <figure>
+      <figure class="video-item">
         <video controls muted loop playsinline preload="metadata" poster="skiing/valley-descent-poster.jpg" aria-label="Ski descent into a wide alpine valley">
           <source src="skiing/valley-descent.mp4" type="video/mp4">
           Your browser does not support embedded video.
         </video>
       </figure>
-      <figure>
+      <figure class="photo photo-c">
+        <img src="skiing/high-alpine-descent.jpg" alt="Skier descending above a broad snow-covered alpine landscape" width="768" height="1024" loading="lazy">
+      </figure>
+      <figure class="photo photo-d">
+        <img src="skiing/ridge-crossing.jpg" alt="Ski tourers crossing a narrow snowy ridge beneath high peaks" width="768" height="1024" loading="lazy">
+      </figure>
+      <figure class="video-item">
         <video controls muted loop playsinline preload="metadata" poster="skiing/powder-turns-poster.jpg" aria-label="Skiers making turns down an open snow field">
           <source src="skiing/powder-turns.mp4" type="video/mp4">
           Your browser does not support embedded video.
         </video>
       </figure>
-      <figure>
+      <figure class="photo photo-e">
+        <img src="skiing/spring-tour.jpg" alt="Ski tourer holding skis beneath a rocky snow-covered mountain face" width="768" height="1024" loading="lazy">
+      </figure>
+      <figure class="video-item">
         <video controls muted loop playsinline preload="metadata" poster="skiing/bluebird-descent-poster.jpg" aria-label="Ski descent beneath a clear blue sky">
           <source src="skiing/bluebird-descent.mp4" type="video/mp4">
           Your browser does not support embedded video.
@@ -313,13 +294,16 @@
   </footer>
 
   <script>
-    const videos = document.querySelectorAll(".video-gallery video");
+    const videos = document.querySelectorAll(".gallery video");
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!reducedMotion && "IntersectionObserver" in window) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            videos.forEach((video) => {
+              if (video !== entry.target) video.pause();
+            });
             entry.target.play().catch(() => {});
           } else {
             entry.target.pause();
