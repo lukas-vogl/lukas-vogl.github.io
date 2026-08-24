@@ -162,8 +162,9 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: clamp(1rem, 2.5vw, 2rem);
+      align-items: center;
     }
 
     figure {
@@ -171,11 +172,6 @@
       background: var(--panel);
     }
 
-    .photo-a { grid-column: span 7; }
-    .photo-b { grid-column: span 5; align-self: end; }
-    .photo-c { grid-column: 2 / span 5; }
-    .photo-d { grid-column: 7 / span 5; margin-top: clamp(1rem, 7vw, 6rem); }
-    .photo-e { grid-column: 4 / span 6; margin-top: clamp(1rem, 4vw, 3rem); }
     figure img {
       display: block;
       width: 100%;
@@ -184,18 +180,13 @@
     }
 
     .video-item {
-      grid-column: 3 / span 8;
-      min-height: 100svh;
-      display: grid;
-      place-items: center;
-      background: transparent;
+      background: var(--panel);
     }
 
     .video-item video {
       display: block;
-      width: auto;
-      max-width: 100%;
-      height: min(82svh, 720px);
+      width: 100%;
+      height: auto;
       aspect-ratio: 3 / 4;
       object-fit: contain;
       background: #020609;
@@ -219,9 +210,6 @@
       .hero { min-height: 74vh; }
       .hero-copy { gap: 1.25rem; }
       .ski-profile { width: min(30vw, 125px); }
-      .gallery { grid-template-columns: 1fr; }
-      .gallery > figure.photo, .gallery > figure.video-item { grid-column: 1; margin-top: 0; }
-      .video-item video { height: auto; width: 100%; }
       footer { flex-direction: column; }
     }
 
@@ -249,8 +237,6 @@
   </header>
 
   <main id="gallery">
-    <p class="gallery-intro">Long approaches, high ridges, and some great lines.</p>
-
     <div class="gallery">
       <figure class="photo photo-a">
         <img src="skiing/glacier.jpg" alt="Skiers descending across a glacier beneath snow-covered peaks" width="1350" height="1800" loading="lazy">
@@ -298,18 +284,34 @@
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!reducedMotion && "IntersectionObserver" in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
-            videos.forEach((video) => {
-              if (video !== entry.target) video.pause();
-            });
-            entry.target.play().catch(() => {});
+      const visibility = new Map();
+
+      const updatePlayback = () => {
+        const visibleVideos = [...videos].filter((video) => (visibility.get(video) || 0) >= 0.5);
+        const viewportCenter = window.innerHeight / 2;
+        const activeVideo = visibleVideos.sort((first, second) => {
+          const firstRect = first.getBoundingClientRect();
+          const secondRect = second.getBoundingClientRect();
+          const firstDistance = Math.abs(firstRect.top + firstRect.height / 2 - viewportCenter);
+          const secondDistance = Math.abs(secondRect.top + secondRect.height / 2 - viewportCenter);
+          return firstDistance - secondDistance;
+        })[0];
+
+        videos.forEach((video) => {
+          if (video === activeVideo) {
+            video.play().catch(() => {});
           } else {
-            entry.target.pause();
+            video.pause();
           }
         });
-      }, { threshold: [0, 0.5] });
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          visibility.set(entry.target, entry.isIntersecting ? entry.intersectionRatio : 0);
+        });
+        updatePlayback();
+      }, { threshold: [0, 0.5, 1] });
 
       videos.forEach((video) => observer.observe(video));
     }
