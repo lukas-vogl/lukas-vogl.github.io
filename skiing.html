@@ -152,7 +152,7 @@
 
     .ski-profile {
       display: block;
-      width: clamp(145px, 16vw, 185px);
+      width: clamp(180px, 20vw, 260px);
       height: auto;
       flex: 0 0 auto;
       border: 1px solid rgba(255, 255, 255, .55);
@@ -209,7 +209,7 @@
     @media (max-width: 720px) {
       .hero { min-height: 74vh; }
       .hero-copy { gap: 1.25rem; }
-      .ski-profile { width: min(30vw, 125px); }
+      .ski-profile { width: min(38vw, 170px); }
       footer { flex-direction: column; }
     }
 
@@ -241,6 +241,12 @@
       <figure class="photo photo-a">
         <img src="skiing/glacier.jpg" alt="Skiers descending across a glacier beneath snow-covered peaks" width="1350" height="1800" loading="lazy">
       </figure>
+      <figure class="video-item">
+        <video controls muted loop playsinline preload="metadata" poster="skiing/bluebird-descent-poster.jpg" aria-label="Ski descent beneath a clear blue sky">
+          <source src="skiing/bluebird-descent.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </figure>
       <figure class="photo photo-b">
         <img src="skiing/approach.jpg" alt="Ski tourers carrying skis along a trail through an alpine forest" width="1350" height="1800" loading="lazy">
       </figure>
@@ -256,6 +262,9 @@
       <figure class="photo photo-d">
         <img src="skiing/ridge-crossing.jpg" alt="Ski tourers crossing a narrow snowy ridge beneath high peaks" width="768" height="1024" loading="lazy">
       </figure>
+      <figure class="photo photo-f">
+        <img src="skiing/ridge.jpg" alt="Skier walking along a sharp snow-covered ridge beneath a clear blue sky" width="1350" height="1800" loading="lazy">
+      </figure>
       <figure class="video-item">
         <video controls muted loop playsinline preload="metadata" poster="skiing/powder-turns-poster.jpg" aria-label="Skiers making turns down an open snow field">
           <source src="skiing/powder-turns.mp4" type="video/mp4">
@@ -264,12 +273,6 @@
       </figure>
       <figure class="photo photo-e">
         <img src="skiing/spring-tour.jpg" alt="Ski tourer holding skis beneath a rocky snow-covered mountain face" width="768" height="1024" loading="lazy">
-      </figure>
-      <figure class="video-item">
-        <video controls muted loop playsinline preload="metadata" poster="skiing/bluebird-descent-poster.jpg" aria-label="Ski descent beneath a clear blue sky">
-          <source src="skiing/bluebird-descent.mp4" type="video/mp4">
-          Your browser does not support embedded video.
-        </video>
       </figure>
     </div>
   </main>

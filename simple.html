@@ -67,7 +67,7 @@
 
     .layout {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) 190px;
+      grid-template-columns: minmax(0, 1fr) 230px;
       gap: clamp(2.5rem, 7vw, 5.5rem);
       align-items: start;
     }
@@ -173,12 +173,12 @@
     @media (max-width: 700px) {
       .page { width: min(calc(100% - 32px), 930px); padding-top: 2.5rem; }
       .layout { grid-template-columns: 1fr; gap: 2.5rem; }
-      .profile { display: grid; grid-template-columns: 132px 1fr; gap: 1.25rem; align-items: start; }
+      .profile { display: grid; grid-template-columns: 150px 1fr; gap: 1.25rem; align-items: start; }
       .profile img { margin: 0; }
     }
 
     @media (max-width: 470px) {
-      .profile { grid-template-columns: 105px 1fr; }
+      .profile { grid-template-columns: 120px 1fr; }
       footer { flex-direction: column; gap: .35rem; }
     }
 
@@ -246,14 +246,6 @@
               </li>
             </ul>
           </section>
-
-          <section id="about">
-            <h2>About</h2>
-            <div class="about-note">
-              <p>I am based in Lausanne, Switzerland, and work with EPFL’s <a href="https://theory.epfl.ch" target="_blank" rel="noopener noreferrer">Theory of Computation Laboratory</a> and <a href="https://disopt.epfl.ch" target="_blank" rel="noopener noreferrer">Chair of Discrete Optimization</a>.</p>
-              <p>I enjoy problems where combinatorial structure leads to algorithms that are both provably strong and genuinely fast.</p>
-            </div>
-          </section>
         </div>
 
         <aside class="profile" aria-label="Profile details">
@@ -261,7 +253,7 @@
           <div>
             <p><strong>Doctoral Assistant</strong>EPFL<br>Lausanne, Switzerland</p>
             <p><a href="mailto:lukas.vogl@epfl.ch">lukas.vogl@epfl.ch</a></p>
-            <p class="profile-links"><a href="https://dblp.org/pid/321/3693.html" target="_blank" rel="noopener noreferrer">DBLP</a><a href="https://orcid.org/0000-0002-8241-536X" target="_blank" rel="noopener noreferrer">ORCID</a><a href="https://people.epfl.ch/lukas.vogl/?lang=en" target="_blank" rel="noopener noreferrer">EPFL</a></p>
+            <p class="profile-links"><a href="https://dblp.org/pid/321/3693.html" target="_blank" rel="noopener noreferrer">DBLP</a><a href="https://orcid.org/0000-0002-8241-536X" target="_blank" rel="noopener noreferrer">ORCID</a></p>
           </div>
         </aside>
       </div>
