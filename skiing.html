@@ -172,16 +172,31 @@
       background: var(--panel);
     }
 
-    figure:nth-child(1) { grid-column: span 7; }
-    figure:nth-child(2) { grid-column: span 5; align-self: end; }
-    figure:nth-child(3) { grid-column: 2 / span 5; }
-    figure:nth-child(4) { grid-column: 7 / span 5; margin-top: clamp(1rem, 7vw, 6rem); }
+    .gallery > figure:nth-child(1) { grid-column: span 7; }
+    .gallery > figure:nth-child(2) { grid-column: span 5; align-self: end; }
+    .gallery > figure:nth-child(3) { grid-column: 2 / span 5; }
+    .gallery > figure:nth-child(4) { grid-column: 7 / span 5; margin-top: clamp(1rem, 7vw, 6rem); }
 
     figure img {
       display: block;
       width: 100%;
       height: auto;
       background: #dce9f1;
+    }
+
+    .video-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(1rem, 2.5vw, 2rem);
+      margin-top: clamp(3rem, 7vw, 6rem);
+    }
+
+    .video-gallery video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      background: #020609;
     }
 
     figcaption {
@@ -209,8 +224,8 @@
     @media (max-width: 720px) {
       .hero { min-height: 74vh; }
       .intro { grid-template-columns: 1fr; }
-      .gallery { grid-template-columns: 1fr; }
-      figure:nth-child(n) { grid-column: 1; margin-top: 0; }
+      .gallery, .video-gallery { grid-template-columns: 1fr; }
+      .gallery > figure:nth-child(n) { grid-column: 1; margin-top: 0; }
       footer { flex-direction: column; }
     }
 
@@ -256,6 +271,30 @@
       <figure>
         <img src="skiing/portrait.jpg" alt="Portrait of Lukas" width="1481" height="1481" loading="lazy">
         <figcaption>Off the mountain</figcaption>
+      </figure>
+    </div>
+
+    <div class="video-gallery" aria-label="Skiing videos">
+      <figure>
+        <video controls playsinline preload="metadata" poster="skiing/valley-descent-poster.jpg" aria-label="Ski descent into a wide alpine valley">
+          <source src="skiing/valley-descent.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+        <figcaption>Valley descent</figcaption>
+      </figure>
+      <figure>
+        <video controls playsinline preload="metadata" poster="skiing/powder-turns-poster.jpg" aria-label="Skiers making turns down an open snow field">
+          <source src="skiing/powder-turns.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+        <figcaption>Powder turns</figcaption>
+      </figure>
+      <figure>
+        <video controls playsinline preload="metadata" poster="skiing/bluebird-descent-poster.jpg" aria-label="Ski descent beneath a clear blue sky">
+          <source src="skiing/bluebird-descent.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+        <figcaption>Bluebird descent</figcaption>
       </figure>
     </div>
   </main>
