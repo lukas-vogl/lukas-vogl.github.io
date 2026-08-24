@@ -140,7 +140,7 @@
 
     .intro {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) clamp(130px, 18vw, 190px);
+      grid-template-columns: minmax(0, 1fr) auto;
       gap: 2rem 5rem;
       align-items: center;
       margin-bottom: clamp(3rem, 7vw, 6rem);
@@ -164,12 +164,10 @@
 
     .ski-profile {
       display: block;
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      object-position: center 32%;
+      width: clamp(145px, 16vw, 185px);
+      height: auto;
       border: 1px solid var(--line);
-      border-radius: 50%;
+      border-radius: 3px;
     }
 
     .gallery {
@@ -193,17 +191,23 @@
     }
 
     .video-gallery {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: clamp(1rem, 2.5vw, 2rem);
       margin-top: clamp(3rem, 7vw, 6rem);
+    }
+
+    .video-gallery > figure {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      background: transparent;
     }
 
     .video-gallery video {
       display: block;
-      width: 100%;
-      aspect-ratio: 9 / 16;
-      object-fit: cover;
+      width: auto;
+      max-width: 100%;
+      height: min(82svh, 720px);
+      aspect-ratio: 3 / 4;
+      object-fit: contain;
       background: #020609;
     }
 
@@ -224,9 +228,10 @@
     @media (max-width: 720px) {
       .hero { min-height: 74vh; }
       .intro { grid-template-columns: 1fr; }
-      .ski-profile { width: min(46vw, 170px); }
-      .gallery, .video-gallery { grid-template-columns: 1fr; }
+      .ski-profile { width: min(52vw, 180px); }
+      .gallery { grid-template-columns: 1fr; }
       .gallery > figure:nth-child(n) { grid-column: 1; margin-top: 0; }
+      .video-gallery video { height: auto; width: 100%; }
       footer { flex-direction: column; }
     }
 
