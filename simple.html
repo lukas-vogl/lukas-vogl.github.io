@@ -62,48 +62,14 @@
     .page {
       width: min(calc(100% - 40px), 930px);
       margin: 0 auto;
-      padding: 2.8rem 0 3rem;
+      padding: 3.5rem 0 3rem;
     }
-
-    .topbar {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 2rem;
-      padding-bottom: 1.1rem;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .site-name {
-      color: var(--ink);
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      font-weight: 700;
-      text-decoration: none;
-    }
-
-    .nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .3rem 1.25rem;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      color: var(--muted);
-      font-size: .86rem;
-      text-decoration: none;
-    }
-
-    .nav a:hover,
-    .nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; }
 
     .layout {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 190px;
       gap: clamp(2.5rem, 7vw, 5.5rem);
       align-items: start;
-      padding-top: 3.75rem;
     }
 
     .intro { padding-bottom: 1.2rem; }
@@ -149,16 +115,6 @@
       font-size: 1.5rem;
       line-height: 1.2;
     }
-
-    .research-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .75rem 2rem;
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-
-    .research-list li { padding-left: .15rem; }
 
     .publications {
       margin: 0;
@@ -214,16 +170,13 @@
     footer p { margin: 0; }
 
     @media (max-width: 700px) {
-      .page { width: min(calc(100% - 32px), 930px); padding-top: 1.5rem; }
-      .topbar { align-items: flex-start; flex-direction: column; gap: .65rem; }
-      .nav { justify-content: flex-start; }
-      .layout { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 2.6rem; }
+      .page { width: min(calc(100% - 32px), 930px); padding-top: 2.5rem; }
+      .layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .profile { display: grid; grid-template-columns: 132px 1fr; gap: 1.25rem; align-items: start; }
       .profile img { margin: 0; }
     }
 
     @media (max-width: 470px) {
-      .research-list { grid-template-columns: 1fr; }
       .profile { grid-template-columns: 105px 1fr; }
       footer { flex-direction: column; gap: .35rem; }
     }
@@ -237,36 +190,14 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <div class="page">
-    <header class="topbar">
-      <a class="site-name" href="simple.html" aria-current="page">Lukas Vogl</a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#about">About</a>
-        <a href="index.html">Full site ↗</a>
-      </nav>
-    </header>
-
     <main id="main">
       <div class="layout">
         <div class="content">
           <div class="intro">
             <h1>Lukas Vogl</h1>
             <p>I am a PhD student in computer science at <a href="https://www.epfl.ch" target="_blank" rel="noopener noreferrer">EPFL</a>, advised by <a href="https://theory.epfl.ch/osven" target="_blank" rel="noopener noreferrer">Ola Svensson</a> and <a href="https://disopt.epfl.ch/people/eisenbrand/" target="_blank" rel="noopener noreferrer">Friedrich Eisenbrand</a>.</p>
-            <p>My research is in theoretical computer science and discrete optimization. I am especially interested in approximation algorithms, correlation clustering, linear programming relaxations, and fast graph algorithms.</p>
+            <p>My research is in theoretical computer science and discrete optimization. I am especially interested in approximation algorithms and fast graph algorithms. I've been working on correlation clustering both from a classcial approximation algorithms prespective and in a wide range of modern settings such as subliner time, streaming and dynamic.</p>
           </div>
-
-          <section id="research">
-            <h2>Research interests</h2>
-            <ul class="research-list">
-              <li>Approximation algorithms</li>
-              <li>Correlation clustering</li>
-              <li>Linear programming</li>
-              <li>Dynamic algorithms</li>
-              <li>Graph algorithms</li>
-              <li>Discrete optimization</li>
-            </ul>
-          </section>
 
           <section id="publications">
             <h2>Selected publications</h2>
