@@ -140,9 +140,9 @@
 
     .intro {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 430px);
+      grid-template-columns: minmax(0, 1fr) clamp(130px, 18vw, 190px);
       gap: 2rem 5rem;
-      align-items: start;
+      align-items: center;
       margin-bottom: clamp(3rem, 7vw, 6rem);
     }
 
@@ -157,8 +157,19 @@
 
     .intro p {
       margin: .25rem 0 0;
+      max-width: 32rem;
       color: var(--muted);
       font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .ski-profile {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center 32%;
+      border: 1px solid var(--line);
+      border-radius: 50%;
     }
 
     .gallery {
@@ -174,9 +185,6 @@
 
     .gallery > figure:nth-child(1) { grid-column: span 7; }
     .gallery > figure:nth-child(2) { grid-column: span 5; align-self: end; }
-    .gallery > figure:nth-child(3) { grid-column: 2 / span 5; }
-    .gallery > figure:nth-child(4) { grid-column: 7 / span 5; margin-top: clamp(1rem, 7vw, 6rem); }
-
     figure img {
       display: block;
       width: 100%;
@@ -199,14 +207,6 @@
       background: #020609;
     }
 
-    figcaption {
-      padding: .8rem .9rem .9rem;
-      color: var(--muted);
-      font-size: .76rem;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
     footer {
       display: flex;
       width: min(100% - 2.4rem, 1180px);
@@ -224,6 +224,7 @@
     @media (max-width: 720px) {
       .hero { min-height: 74vh; }
       .intro { grid-template-columns: 1fr; }
+      .ski-profile { width: min(46vw, 170px); }
       .gallery, .video-gallery { grid-template-columns: 1fr; }
       .gallery > figure:nth-child(n) { grid-column: 1; margin-top: 0; }
       footer { flex-direction: column; }
@@ -251,50 +252,40 @@
 
   <main id="gallery">
     <section class="intro" aria-labelledby="gallery-title">
-      <h2 id="gallery-title">Days in the mountains</h2>
-      <p>Ski touring, long approaches, high ridges, and the quiet of open snow.</p>
+      <div>
+        <h2 id="gallery-title">Days in the mountains</h2>
+        <p>Ski touring, long approaches, high ridges, and the quiet of open snow.</p>
+      </div>
+      <img class="ski-profile" src="skiing/blue-sky.jpg" alt="Lukas wearing ski-touring gear beneath a clear blue sky" width="1350" height="1800">
     </section>
 
     <div class="gallery">
       <figure>
         <img src="skiing/glacier.jpg" alt="Skiers descending across a glacier beneath snow-covered peaks" width="1350" height="1800" loading="lazy">
-        <figcaption>Open snow</figcaption>
-      </figure>
-      <figure>
-        <img src="skiing/blue-sky.jpg" alt="Lukas wearing ski-touring gear beneath a clear blue sky" width="1350" height="1800" loading="lazy">
-        <figcaption>Blue-sky day</figcaption>
       </figure>
       <figure>
         <img src="skiing/approach.jpg" alt="Ski tourers carrying skis along a trail through an alpine forest" width="1350" height="1800" loading="lazy">
-        <figcaption>The approach</figcaption>
-      </figure>
-      <figure>
-        <img src="skiing/portrait.jpg" alt="Portrait of Lukas" width="1481" height="1481" loading="lazy">
-        <figcaption>Off the mountain</figcaption>
       </figure>
     </div>
 
     <div class="video-gallery" aria-label="Skiing videos">
       <figure>
-        <video controls playsinline preload="metadata" poster="skiing/valley-descent-poster.jpg" aria-label="Ski descent into a wide alpine valley">
+        <video controls muted loop playsinline preload="metadata" poster="skiing/valley-descent-poster.jpg" aria-label="Ski descent into a wide alpine valley">
           <source src="skiing/valley-descent.mp4" type="video/mp4">
           Your browser does not support embedded video.
         </video>
-        <figcaption>Valley descent</figcaption>
       </figure>
       <figure>
-        <video controls playsinline preload="metadata" poster="skiing/powder-turns-poster.jpg" aria-label="Skiers making turns down an open snow field">
+        <video controls muted loop playsinline preload="metadata" poster="skiing/powder-turns-poster.jpg" aria-label="Skiers making turns down an open snow field">
           <source src="skiing/powder-turns.mp4" type="video/mp4">
           Your browser does not support embedded video.
         </video>
-        <figcaption>Powder turns</figcaption>
       </figure>
       <figure>
-        <video controls playsinline preload="metadata" poster="skiing/bluebird-descent-poster.jpg" aria-label="Ski descent beneath a clear blue sky">
+        <video controls muted loop playsinline preload="metadata" poster="skiing/bluebird-descent-poster.jpg" aria-label="Ski descent beneath a clear blue sky">
           <source src="skiing/bluebird-descent.mp4" type="video/mp4">
           Your browser does not support embedded video.
         </video>
-        <figcaption>Bluebird descent</figcaption>
       </figure>
     </div>
   </main>
@@ -303,5 +294,24 @@
     <p>© 2026 Lukas Vogl</p>
     <p><a href="index.html">Back to academic profile</a></p>
   </footer>
+
+  <script>
+    const videos = document.querySelectorAll(".video-gallery video");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!reducedMotion && "IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            entry.target.play().catch(() => {});
+          } else {
+            entry.target.pause();
+          }
+        });
+      }, { threshold: [0, 0.5] });
+
+      videos.forEach((video) => observer.observe(video));
+    }
+  </script>
 </body>
 </html>
