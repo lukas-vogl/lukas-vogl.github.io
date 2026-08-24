@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lukas Vogl — doctoral researcher at EPFL working on approximation algorithms, clustering, and discrete optimization.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Lukas Vogl — Academic Profile</title>
+  <style>
+    :root {
+      --ink: #222222;
+      --muted: #60646c;
+      --link: #2456a6;
+      --line: #d9dce1;
+      --soft: #f5f6f8;
+      --page: #ffffff;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--page);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.62;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    a:focus-visible {
+      outline: 2px solid var(--link);
+      outline-offset: 3px;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    .skip-link {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      padding: .55rem .8rem;
+      color: white;
+      background: var(--ink);
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus { transform: none; }
+
+    .page {
+      width: min(calc(100% - 40px), 930px);
+      margin: 0 auto;
+      padding: 2.8rem 0 3rem;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 2rem;
+      padding-bottom: 1.1rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .site-name {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem 1.25rem;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      color: var(--muted);
+      font-size: .86rem;
+      text-decoration: none;
+    }
+
+    .nav a:hover,
+    .nav a[aria-current="page"] { color: var(--ink); text-decoration: underline; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 190px;
+      gap: clamp(2.5rem, 7vw, 5.5rem);
+      align-items: start;
+      padding-top: 3.75rem;
+    }
+
+    .intro { padding-bottom: 1.2rem; }
+
+    h1 {
+      margin-bottom: 1.5rem;
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 6vw, 3.4rem);
+      font-weight: 700;
+      letter-spacing: -.035em;
+      line-height: 1.08;
+    }
+
+    .intro p { font-size: 1.04rem; }
+
+    .intro p:last-child { margin-bottom: 0; }
+
+    .profile {
+      font-size: .88rem;
+      line-height: 1.55;
+    }
+
+    .profile img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 1.15rem;
+      border-radius: 2px;
+    }
+
+    .profile p { margin-bottom: .9rem; }
+    .profile strong { display: block; }
+    .profile-links { display: flex; flex-wrap: wrap; gap: .15rem .65rem; }
+
+    section {
+      padding: 2.6rem 0 .25rem;
+      border-top: 1px solid var(--line);
+    }
+
+    h2 {
+      margin-bottom: 1.45rem;
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .research-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: .75rem 2rem;
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .research-list li { padding-left: .15rem; }
+
+    .publications {
+      margin: 0;
+      padding-left: 1.3rem;
+    }
+
+    .publication {
+      margin-bottom: 1.8rem;
+      padding-left: .25rem;
+    }
+
+    .publication h3 {
+      margin-bottom: .25rem;
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      line-height: 1.4;
+    }
+
+    .authors {
+      margin-bottom: .22rem;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.5;
+    }
+
+    .venue {
+      margin-bottom: .18rem;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+
+    .paper-links { margin: 0; font-size: .84rem; }
+
+    .about-note {
+      padding: 1rem 1.1rem;
+      border-left: 3px solid var(--line);
+      background: var(--soft);
+    }
+
+    .about-note p:last-child { margin-bottom: 0; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 3.3rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    footer p { margin: 0; }
+
+    @media (max-width: 700px) {
+      .page { width: min(calc(100% - 32px), 930px); padding-top: 1.5rem; }
+      .topbar { align-items: flex-start; flex-direction: column; gap: .65rem; }
+      .nav { justify-content: flex-start; }
+      .layout { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 2.6rem; }
+      .profile { display: grid; grid-template-columns: 132px 1fr; gap: 1.25rem; align-items: start; }
+      .profile img { margin: 0; }
+    }
+
+    @media (max-width: 470px) {
+      .research-list { grid-template-columns: 1fr; }
+      .profile { grid-template-columns: 105px 1fr; }
+      footer { flex-direction: column; gap: .35rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page">
+    <header class="topbar">
+      <a class="site-name" href="simple.html" aria-current="page">Lukas Vogl</a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#about">About</a>
+        <a href="index.html">Full site ↗</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <div class="layout">
+        <div class="content">
+          <div class="intro">
+            <h1>Lukas Vogl</h1>
+            <p>I am a PhD student in computer science at <a href="https://www.epfl.ch" target="_blank" rel="noopener noreferrer">EPFL</a>, advised by <a href="https://theory.epfl.ch/osven" target="_blank" rel="noopener noreferrer">Ola Svensson</a> and <a href="https://disopt.epfl.ch/people/eisenbrand/" target="_blank" rel="noopener noreferrer">Friedrich Eisenbrand</a>.</p>
+            <p>My research is in theoretical computer science and discrete optimization. I am especially interested in approximation algorithms, correlation clustering, linear programming relaxations, and fast graph algorithms.</p>
+          </div>
+
+          <section id="research">
+            <h2>Research interests</h2>
+            <ul class="research-list">
+              <li>Approximation algorithms</li>
+              <li>Correlation clustering</li>
+              <li>Linear programming</li>
+              <li>Dynamic algorithms</li>
+              <li>Graph algorithms</li>
+              <li>Discrete optimization</li>
+            </ul>
+          </section>
+
+          <section id="publications">
+            <h2>Selected publications</h2>
+            <ol class="publications" reversed>
+              <li class="publication">
+                <article>
+                  <h3>Static to Dynamic Correlation Clustering</h3>
+                  <p class="authors">Nairen Cao, Vincent Cohen-Addad, Euiwoong Lee, Shi Li, David Rasmussen Lolck, Alantha Newman, Mikkel Thorup, <strong>Lukas Vogl</strong>, Shuyi Yan, Hanwen Zhang</p>
+                  <p class="venue">ICALP 2026</p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2504.12060" target="_blank" rel="noopener noreferrer">arXiv</a> · <a href="https://dblp.org/rec/conf/icalp/CaoCLLLNTVYZ26" target="_blank" rel="noopener noreferrer">DBLP</a></p>
+                </article>
+              </li>
+              <li class="publication">
+                <article>
+                  <h3>Solving the Correlation Cluster LP in Sublinear Time</h3>
+                  <p class="authors">Nairen Cao, Vincent Cohen-Addad, Euiwoong Lee, Shi Li, David Rasmussen Lolck, Alantha Newman, Mikkel Thorup, <strong>Lukas Vogl</strong>, Shuyi Yan, Hanwen Zhang</p>
+                  <p class="venue">STOC 2025</p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2503.20883" target="_blank" rel="noopener noreferrer">arXiv</a> · <a href="https://dblp.org/rec/conf/stoc/CaoCL0LNTVY025" target="_blank" rel="noopener noreferrer">DBLP</a></p>
+                </article>
+              </li>
+              <li class="publication">
+                <article>
+                  <h3>Second Price Matching with Complete Allocation and Degree Constraints</h3>
+                  <p class="authors">Rom Pinchasi, Neta Singer, <strong>Lukas Vogl</strong>, Jiaye Wei</p>
+                  <p class="venue">Preprint, 2025</p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2505.06005" target="_blank" rel="noopener noreferrer">arXiv</a> · <a href="https://dblp.org/rec/journals/corr/abs-2505-06005" target="_blank" rel="noopener noreferrer">DBLP</a></p>
+                </article>
+              </li>
+              <li class="publication">
+                <article>
+                  <h3>Understanding the Cluster Linear Program for Correlation Clustering</h3>
+                  <p class="authors">Nairen Cao, Vincent Cohen-Addad, Euiwoong Lee, Shi Li, Alantha Newman, <strong>Lukas Vogl</strong></p>
+                  <p class="venue">STOC 2024</p>
+                  <p class="paper-links"><a href="https://arxiv.org/abs/2404.17509" target="_blank" rel="noopener noreferrer">arXiv</a> · <a href="https://dblp.org/rec/conf/stoc/CaoCL0NV24" target="_blank" rel="noopener noreferrer">DBLP</a></p>
+                </article>
+              </li>
+              <li class="publication">
+                <article>
+                  <h3>The Connection of the Acyclic Disconnection and Feedback Arc Sets — On an Open Problem of Figueroa et al.</h3>
+                  <p class="authors">Laura Vargas Koch, <strong>Lukas Vogl</strong></p>
+                  <p class="venue">Discrete Mathematics, 2024</p>
+                  <p class="paper-links"><a href="https://dblp.org/rec/journals/dm/KochV24" target="_blank" rel="noopener noreferrer">DBLP</a></p>
+                </article>
+              </li>
+            </ol>
+          </section>
+
+          <section id="about">
+            <h2>About</h2>
+            <div class="about-note">
+              <p>I am based in Lausanne, Switzerland, and work with EPFL’s <a href="https://theory.epfl.ch" target="_blank" rel="noopener noreferrer">Theory of Computation Laboratory</a> and <a href="https://disopt.epfl.ch" target="_blank" rel="noopener noreferrer">Chair of Discrete Optimization</a>.</p>
+              <p>I enjoy problems where combinatorial structure leads to algorithms that are both provably strong and genuinely fast.</p>
+            </div>
+          </section>
+        </div>
+
+        <aside class="profile" aria-label="Profile details">
+          <img src="profile-photo.jpg" alt="Portrait of Lukas Vogl" width="1000" height="1000">
+          <div>
+            <p><strong>Doctoral Assistant</strong>EPFL<br>Lausanne, Switzerland</p>
+            <p><a href="mailto:lukas.vogl@epfl.ch">lukas.vogl@epfl.ch</a></p>
+            <p class="profile-links"><a href="https://dblp.org/pid/321/3693.html" target="_blank" rel="noopener noreferrer">DBLP</a><a href="https://orcid.org/0000-0002-8241-536X" target="_blank" rel="noopener noreferrer">ORCID</a><a href="https://people.epfl.ch/lukas.vogl/?lang=en" target="_blank" rel="noopener noreferrer">EPFL</a></p>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 Lukas Vogl</p>
+      <p><a href="index.html">View the full site</a></p>
+    </footer>
+  </div>
+</body>
+</html>
