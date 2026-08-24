@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ski touring and mountain photographs by Lukas Vogl.">
+  <meta name="theme-color" content="#0b1824">
+  <meta property="og:title" content="Skiing — Lukas Vogl">
+  <meta property="og:description" content="A few days in the mountains.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lukas-vogl.github.io/skiing.html">
+  <meta property="og:image" content="https://lukas-vogl.github.io/skiing/ridge.jpg">
+  <title>Skiing — Lukas Vogl</title>
+  <style>
+    :root {
+      --ink: #f3f6f8;
+      --muted: #aebdca;
+      --night: #07111a;
+      --panel: #0d1d29;
+      --line: rgba(255, 255, 255, .18);
+      --accent: #b8ddf2;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--night);
+      font-family: var(--sans);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 4px;
+    }
+
+    a:hover { color: var(--accent); }
+
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 10;
+      top: .75rem;
+      left: .75rem;
+      padding: .6rem .9rem;
+      color: var(--night);
+      background: white;
+      transform: translateY(-180%);
+    }
+
+    .skip-link:focus { transform: none; }
+
+    .topbar {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.4rem clamp(1.2rem, 4vw, 3.5rem);
+      font-size: .84rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .topbar a { text-decoration: none; }
+
+    .hero {
+      position: relative;
+      min-height: min(88vh, 860px);
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      background: #102c47;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(3, 10, 18, .42) 0%, transparent 34%, rgba(3, 10, 18, .2) 62%, rgba(3, 10, 18, .92) 100%);
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 58%;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 2.4rem, 1180px);
+      margin: 0 auto;
+      padding-bottom: clamp(2.8rem, 7vw, 6rem);
+    }
+
+    .eyebrow {
+      margin: 0 0 .8rem;
+      color: var(--accent);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 9ch;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(3.7rem, 12vw, 9.5rem);
+      font-weight: 400;
+      letter-spacing: -.055em;
+      line-height: .85;
+    }
+
+    main {
+      width: min(100% - 2.4rem, 1180px);
+      margin: 0 auto;
+      padding: clamp(4rem, 9vw, 8rem) 0;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 430px);
+      gap: 2rem 5rem;
+      align-items: start;
+      margin-bottom: clamp(3rem, 7vw, 6rem);
+    }
+
+    .intro h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(2.1rem, 5vw, 4.2rem);
+      font-weight: 400;
+      letter-spacing: -.035em;
+      line-height: 1;
+    }
+
+    .intro p {
+      margin: .25rem 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: clamp(1rem, 2.5vw, 2rem);
+    }
+
+    figure {
+      margin: 0;
+      background: var(--panel);
+    }
+
+    figure:nth-child(1) { grid-column: span 7; }
+    figure:nth-child(2) { grid-column: span 5; align-self: end; }
+    figure:nth-child(3) { grid-column: 2 / span 5; }
+    figure:nth-child(4) { grid-column: 7 / span 5; margin-top: clamp(1rem, 7vw, 6rem); }
+
+    figure img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #dce9f1;
+    }
+
+    figcaption {
+      padding: .8rem .9rem .9rem;
+      color: var(--muted);
+      font-size: .76rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      display: flex;
+      width: min(100% - 2.4rem, 1180px);
+      margin: 0 auto;
+      padding: 1.6rem 0 2.2rem;
+      justify-content: space-between;
+      gap: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    footer p { margin: 0; }
+
+    @media (max-width: 720px) {
+      .hero { min-height: 74vh; }
+      .intro { grid-template-columns: 1fr; }
+      .gallery { grid-template-columns: 1fr; }
+      figure:nth-child(n) { grid-column: 1; margin-top: 0; }
+      footer { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#gallery">Skip to gallery</a>
+
+  <header class="hero">
+    <nav class="topbar" aria-label="Primary navigation">
+      <a href="index.html">Lukas Vogl</a>
+      <a href="index.html">Academic profile ↗</a>
+    </nav>
+    <img src="skiing/ridge.jpg" alt="Ski mountaineer walking along a narrow snow-covered ridge" width="1800" height="1350" fetchpriority="high">
+    <div class="hero-copy">
+      <p class="eyebrow">Away from the desk</p>
+      <h1>Skiing</h1>
+    </div>
+  </header>
+
+  <main id="gallery">
+    <section class="intro" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Days in the mountains</h2>
+      <p>Ski touring, long approaches, high ridges, and the quiet of open snow.</p>
+    </section>
+
+    <div class="gallery">
+      <figure>
+        <img src="skiing/glacier.jpg" alt="Skiers descending across a glacier beneath snow-covered peaks" width="1350" height="1800" loading="lazy">
+        <figcaption>Open snow</figcaption>
+      </figure>
+      <figure>
+        <img src="skiing/blue-sky.jpg" alt="Lukas wearing ski-touring gear beneath a clear blue sky" width="1350" height="1800" loading="lazy">
+        <figcaption>Blue-sky day</figcaption>
+      </figure>
+      <figure>
+        <img src="skiing/approach.jpg" alt="Ski tourers carrying skis along a trail through an alpine forest" width="1350" height="1800" loading="lazy">
+        <figcaption>The approach</figcaption>
+      </figure>
+      <figure>
+        <img src="skiing/portrait.jpg" alt="Portrait of Lukas" width="1800" height="1800" loading="lazy">
+        <figcaption>Off the mountain</figcaption>
+      </figure>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Lukas Vogl</p>
+    <p><a href="index.html">Back to academic profile</a></p>
+  </footer>
+</body>
+</html>
