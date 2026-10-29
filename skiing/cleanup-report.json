@@ -1,0 +1,241 @@
+{
+  "date": "2026-10-29",
+  "retainedCollection": {
+    "tourFolders": 8,
+    "uniquePhotos": 28,
+    "uniqueFilms": 5
+  },
+  "duplicateFilesRemoved": 13,
+  "duplicateBytesRemoved": 24075695,
+  "policy": "Retain the highest-quality, metadata-rich original of each moment. Web-sized images, thumbnails, streaming MP4s and film posters are intentional derivatives, not additional gallery items. Distinct frames and photos are not duplicates.",
+  "removed": [
+    {
+      "removed": "skiing/Aletsch/8161AE73-0CE9-468A-A621-DF9AAC90C5D6_1_105_c.jpeg",
+      "kind": "duplicate-photo",
+      "bytes": 151519,
+      "sha256": "5a19a0933450a451d012a8b9f2a379dbf0bec9bc0662e89a6ad64b6e363bbda5",
+      "reason": "exact SHA-256 match; same 1086×724 image; retain descriptive filename",
+      "retained": "skiing/Aletsch/alpine-panorama.jpg"
+    },
+    {
+      "removed": "skiing/Binntal/0E6DC634-E811-4ADA-9734-44CD45781CF0_1_105_c.jpeg",
+      "kind": "duplicate-photo",
+      "bytes": 254176,
+      "sha256": "766c07db1b162a03be7c384d093f7a5cd6e87ff8a5c4573d78ff8cd8d70f67dd",
+      "reason": "exact SHA-256 match; same 768×1024 image; retain descriptive filename",
+      "retained": "skiing/Binntal/high-alpine-descent.jpg"
+    },
+    {
+      "removed": "skiing/Balfrin/approach.jpg",
+      "kind": "duplicate-photo",
+      "bytes": 1594020,
+      "sha256": "b44a5487bb57c862a61204df139aa4db7f4f0c627a9dd20198f6b3fc1160b585",
+      "reason": "visual same photograph + normalized mean RGB difference 8.448/255; retain 3840×5120 source over 1350×1800 export",
+      "retained": "skiing/Balfrin/f7cb35a7-9e2e-452f-81ea-9dfc45211f97.jpeg"
+    },
+    {
+      "removed": "skiing/Oberalppass/spring-tour.jpg",
+      "kind": "duplicate-photo",
+      "bytes": 270451,
+      "sha256": "3aafa6220eaa8ecfeb3c54b57c4fa96ca6943682231c0626a4b587508e763d16",
+      "reason": "visual same photograph, matching EXIF capture time/GPS, normalized mean RGB difference 6.531/255; exports exact SHA-256 match each other; retain 2252×3003 source over 768×1024 exports",
+      "retained": "skiing/Oberalppass/20260305_105838.jpeg"
+    },
+    {
+      "removed": "skiing/Oberalppass/A35E3649-57EA-4669-BD90-18AD60B37217_1_105_c.jpeg",
+      "kind": "duplicate-photo",
+      "bytes": 270451,
+      "sha256": "3aafa6220eaa8ecfeb3c54b57c4fa96ca6943682231c0626a4b587508e763d16",
+      "reason": "visual same photograph, matching EXIF capture time/GPS, normalized mean RGB difference 6.531/255; exports exact SHA-256 match each other; retain 2252×3003 source over 768×1024 exports",
+      "retained": "skiing/Oberalppass/20260305_105838.jpeg"
+    },
+    {
+      "removed": "skiing/Oberalppass/ridge-crossing.jpg",
+      "kind": "duplicate-photo",
+      "bytes": 279707,
+      "sha256": "380e414588359166b4ec4c26b3d5c5b2b9124fe9680cde4838c8c1f47c6c23d4",
+      "reason": "visual same photograph, matching EXIF capture time, normalized mean RGB difference 0.985/255; exports exact SHA-256 match each other; retain 3024×4032 source over 768×1024 exports; all-zero GPS discarded",
+      "retained": "skiing/Oberalppass/IMG_0475.jpeg"
+    },
+    {
+      "removed": "skiing/Oberalppass/8561E97D-2CA9-4619-BB6A-3AB794FAC24C_1_105_c.jpeg",
+      "kind": "duplicate-photo",
+      "bytes": 279707,
+      "sha256": "380e414588359166b4ec4c26b3d5c5b2b9124fe9680cde4838c8c1f47c6c23d4",
+      "reason": "visual same photograph, matching EXIF capture time, normalized mean RGB difference 0.985/255; exports exact SHA-256 match each other; retain 3024×4032 source over 768×1024 exports; all-zero GPS discarded",
+      "retained": "skiing/Oberalppass/IMG_0475.jpeg"
+    },
+    {
+      "removed": "skiing/Oberalppass/blue-sky.jpg",
+      "kind": "duplicate-photo",
+      "bytes": 419712,
+      "sha256": "22864ea1f53c61157fda4c4112e01a3b86b8ae5872df34ae0cf95955322fb92a",
+      "reason": "visual same photograph + normalized mean RGB difference 6.916/255; retain GPS-bearing 3024×4032 original over metadata-free 1350×1800 export",
+      "retained": "skiing/Oberalppass/IMG_1251.jpeg"
+    },
+    {
+      "removed": "skiing/Piz Palue/ridge.jpg",
+      "kind": "duplicate-photo",
+      "bytes": 428662,
+      "sha256": "726c2524082c34c0483c8b61619fae1cf04c394e167a7577818ab626bf08119c",
+      "reason": "visual same photograph + normalized mean RGB difference 5.952/255; retain metadata-rich 3024×4032 original over metadata-free 1350×1800 export",
+      "retained": "skiing/Piz Palue/IMG_7809.jpeg"
+    },
+    {
+      "removed": "skiing/Balfrin/bluebird-descent.mp4",
+      "kind": "duplicate-video",
+      "bytes": 3877959,
+      "sha256": "c0d03e183483730ca34770c11fd1d42a130dfb8c37c39a5a8ac824d55445256c",
+      "reason": "Five sampled frames correlate at 0.9973–0.9986 after orientation normalization. Retain the original MOV including audio; the old MP4 was a silent re-encoding.",
+      "retained": "skiing/Balfrin/ad3b77d7-3880-48e7-882b-0fbeb7f49847.mov"
+    },
+    {
+      "removed": "skiing/Balfrin/powder-turns.mp4",
+      "kind": "duplicate-video",
+      "bytes": 4315055,
+      "sha256": "04a66cfc5af2e55cd56ca25e7d273072f9238a01546a2ae495979d7931c6ade6",
+      "reason": "Five sampled frames correlate at 0.9973–0.9986 after orientation normalization. Retain the original MOV including audio; the old MP4 was a silent re-encoding.",
+      "retained": "skiing/Balfrin/a72ed6ef-f44e-4925-8ec9-5b958b92b6de.mov"
+    },
+    {
+      "removed": "skiing/Oberalppass/valley-descent.mp4",
+      "kind": "duplicate-video",
+      "bytes": 5841149,
+      "sha256": "24803a6df5b5c0915446b239f71180ddc9a9b734828baadf4a5090f1918eed08",
+      "reason": "All 97 encoded video samples are byte-identical. Retain the original MOV with audio, GPS and altitude.",
+      "retained": "skiing/Oberalppass/IMG_4473.MOV"
+    },
+    {
+      "removed": "skiing/Oberalppass/IMG_4473 (1).mov",
+      "kind": "duplicate-video",
+      "bytes": 6093127,
+      "sha256": "3878dba3f5539a23639c178918ff5aad3668fe7abc3e201225fa6f4f620b7425",
+      "reason": "Same clip: five normalized frame differences 0.40–0.44 /255 and audio correlation 0.999802 across 153280 samples. Retain the 1440×1920 original instead of the 1080×1440 export.",
+      "retained": "skiing/Oberalppass/IMG_4473.MOV"
+    },
+    {
+      "removed": "skiing/Balfrin/bluebird-descent-poster.jpg",
+      "kind": "superseded-video-poster",
+      "bytes": 89183,
+      "sha256": "a2242a4446b2cc10c200bd85269be6a833256d154395e6e618a7c17277ceae6a",
+      "reason": "Generated preview of an included film; replaced with a WebP poster and thumbnail in web/ and thumbs/."
+    },
+    {
+      "removed": "skiing/Balfrin/powder-turns-poster.jpg",
+      "kind": "superseded-video-poster",
+      "bytes": 70355,
+      "sha256": "509627daa4c4ae6d9b0a435da27af3bf74cff7db3dfb68685248a593b10f2f5e",
+      "reason": "Generated preview of an included film; replaced with a WebP poster and thumbnail in web/ and thumbs/."
+    },
+    {
+      "removed": "skiing/Oberalppass/valley-descent-poster.jpg",
+      "kind": "superseded-video-poster",
+      "bytes": 150469,
+      "sha256": "15270b052de48cf0797248aa4f5fb4939b1c4513000bfe5f01e716156948c18b",
+      "reason": "Generated preview of an included film; replaced with a WebP poster and thumbnail in web/ and thumbs/."
+    },
+    {
+      "removed": "skiing/maps/aletsch-1930.webp",
+      "kind": "unused-map-export",
+      "bytes": 357360,
+      "sha256": "c2ec99fb8f634aee740ddb88f7a7b35704315b0cb0ccfc1fa7d06a08c8bb7923",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/aletsch-1970.webp",
+      "kind": "unused-map-export",
+      "bytes": 329452,
+      "sha256": "f9ee842871a8b3e37ffa769921037e5cfdb2a1a4aa15694344adaec6edfec138",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/aletsch-current.webp",
+      "kind": "unused-map-export",
+      "bytes": 386348,
+      "sha256": "f0094b4d8ca84b4998ee9c914f35db83da16d7e994c3b77b46e52bc66c6900af",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/balfrin-1930.webp",
+      "kind": "unused-map-export",
+      "bytes": 497606,
+      "sha256": "9fa5331fe26bd1ae4300b9ecc826cd1aaf1be69ded7ca0afe14bdf284f3a465d",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/balfrin-1970.webp",
+      "kind": "unused-map-export",
+      "bytes": 420376,
+      "sha256": "a43fe09d85a91204a4fa045f2004d7f4f6130807bf86c8e8dd1db39a87d6edf6",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/balfrin-current.webp",
+      "kind": "unused-map-export",
+      "bytes": 436496,
+      "sha256": "972d539fe06f4b6b3928aac896dd7ed646f889a8e24680c32bb47effde8a8cd0",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/oberalp-1930.webp",
+      "kind": "unused-map-export",
+      "bytes": 524838,
+      "sha256": "70cde93b104987cc4e49d9e863afbe07e645ce4f5f786238e47f949e100fd4ff",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/oberalp-1970.webp",
+      "kind": "unused-map-export",
+      "bytes": 453938,
+      "sha256": "04ccbc79f721ad25ff7a3cc4071f0c753024a3bf791cd75c5045db65526a31cb",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/oberalp-current.webp",
+      "kind": "unused-map-export",
+      "bytes": 406172,
+      "sha256": "bebef84a0954aeaac796741e17f42ca79103348333e6be8ac39f984b7f78fe9d",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/piz-palu-1930.webp",
+      "kind": "unused-map-export",
+      "bytes": 486172,
+      "sha256": "7f34bc6a150d90faca7e85e3de4fe7a3f0b185ba03d5142b253f559493b8a286",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/piz-palu-1970.webp",
+      "kind": "unused-map-export",
+      "bytes": 412770,
+      "sha256": "958acd35b493187d1370bdad184e878693eb3f9f6e39b606b1c5d464cf790939",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": "skiing/maps/piz-palu-current.webp",
+      "kind": "unused-map-export",
+      "bytes": 419144,
+      "sha256": "95885f5e47768f7dddbf498fb6ef28bdfbc74f753c7c7789034eaf6c96e0c067",
+      "reason": "Unused static comparison map from the former journal; the atlas loads live swisstopo tiles."
+    },
+    {
+      "removed": ".DS_Store",
+      "kind": "system-metadata",
+      "bytes": 8196,
+      "sha256": "e44a57a79dcd4f76100c2989d976fb4c11215f56cb5657da4c34f1ee0c863a41",
+      "reason": "Finder metadata is not website content."
+    },
+    {
+      "removed": "skiing/.DS_Store",
+      "kind": "system-metadata",
+      "bytes": 10244,
+      "sha256": "25348c17371a22d0f825102d2ead7f6296815df3fce69bc7bc9b06942d469496",
+      "reason": "Finder metadata is not website content."
+    }
+  ],
+  "unassignedMedia": [
+    "skiing/portrait.jpg",
+    "skiing/WhatsApp Image 2023-12-04 at 21.01.24.jpeg",
+    "skiing/VID_20231217_134032.mov"
+  ]
+}

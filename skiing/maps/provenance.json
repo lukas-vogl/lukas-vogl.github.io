@@ -1,0 +1,567 @@
+{
+  "updated": "2026-10-29",
+  "attribution": "©swisstopo",
+  "interactiveMap": {
+    "provider": "swisstopo / geo.admin.ch",
+    "layer": "ch.swisstopo.zeitreihen",
+    "selectedYear": 1930,
+    "timestamp": "19301231",
+    "crs": "EPSG:3857",
+    "tileUrl": "https://wmts.geo.admin.ch/1.0.0/ch.swisstopo.zeitreihen/default/19301231/3857/{z}/{x}/{y}.png",
+    "note": "1930 is the selected year of the Journey through time mosaic. Individual sheets may have earlier survey dates.",
+    "documentation": "https://docs.geo.admin.ch/visualize-data/wmts.html"
+  },
+  "placementPolicy": "The owner’s location folders determine tour associations. Original GPS coordinates are retained. The owner requested distinct, educated placements for all other media based on visible terrain, nearby landmarks and plausible tour geography. These estimates are not verified camera positions. All media use the same presentation; card offsets only affect screen layout.",
+  "counts": {
+    "tourAreas": 7,
+    "photos": 25,
+    "films": 4,
+    "gpsPositions": 3
+  },
+  "confirmedCameraPoints": [
+    {
+      "id": "spring",
+      "source": "skiing/Oberalppass/20260305_105838.jpeg",
+      "position": [
+        46.68988056,
+        8.68413889
+      ],
+      "capturedAtMetadata": "2026:03:05 10:58:38"
+    },
+    {
+      "id": "portrait",
+      "source": "skiing/Oberalppass/IMG_1251.jpeg",
+      "position": [
+        46.64764722,
+        8.658425
+      ],
+      "capturedAtMetadata": "2026:03:04 12:38:36"
+    },
+    {
+      "id": "valley",
+      "source": "skiing/Oberalppass/IMG_4473.MOV",
+      "position": [
+        46.6947,
+        8.7021
+      ],
+      "capturedAtMetadata": "2026-03-05T13:15:36+0100"
+    }
+  ],
+  "areas": [
+    {
+      "id": "aletsch",
+      "name": "Aletsch",
+      "position": [
+        46.485,
+        8.04
+      ],
+      "bounds": [
+        [
+          46.4,
+          7.97
+        ],
+        [
+          46.56,
+          8.11
+        ]
+      ],
+      "source": "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Aletschgletscher&type=locations&origins=gazetteer&limit=3&sr=4326"
+    },
+    {
+      "id": "arolla",
+      "name": "Arolla",
+      "position": [
+        46.022255,
+        7.485414
+      ],
+      "bounds": [
+        [
+          45.95,
+          7.42
+        ],
+        [
+          46.1,
+          7.55
+        ]
+      ],
+      "source": "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Arolla&type=locations&origins=gazetteer&limit=3&sr=4326"
+    },
+    {
+      "id": "balfrin",
+      "name": "Balfrin",
+      "position": [
+        46.155,
+        7.865
+      ],
+      "bounds": [
+        [
+          46.12,
+          7.81
+        ],
+        [
+          46.2,
+          7.92
+        ]
+      ],
+      "source": "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Balfrin&type=locations&origins=gazetteer&limit=3&sr=4326"
+    },
+    {
+      "id": "binntal",
+      "name": "Binntal",
+      "position": [
+        46.375164,
+        8.244641
+      ],
+      "bounds": [
+        [
+          46.32,
+          8.15
+        ],
+        [
+          46.435,
+          8.345
+        ]
+      ],
+      "source": "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Binntal&type=locations&origins=gazetteer&limit=3&sr=4326"
+    },
+    {
+      "id": "grimentz",
+      "name": "Grimentz",
+      "position": [
+        46.18,
+        7.55
+      ],
+      "bounds": [
+        [
+          46.14,
+          7.5
+        ],
+        [
+          46.22,
+          7.62
+        ]
+      ],
+      "source": "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Grimentz&type=locations&origins=gazetteer&limit=3&sr=4326"
+    },
+    {
+      "id": "oberalp",
+      "name": "Oberalppass",
+      "position": [
+        46.675,
+        8.685
+      ],
+      "bounds": [
+        [
+          46.635,
+          8.63
+        ],
+        [
+          46.71,
+          8.735
+        ]
+      ],
+      "source": "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Oberalppass&type=locations&origins=gazetteer&limit=3&sr=4326"
+    },
+    {
+      "id": "palu",
+      "name": "Piz Palü",
+      "position": [
+        46.39,
+        9.955
+      ],
+      "bounds": [
+        [
+          46.335,
+          9.805
+        ],
+        [
+          46.43,
+          10.005
+        ]
+      ],
+      "source": "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Piz+Pal%C3%BC&type=locations&origins=gazetteer&limit=3&sr=4326"
+    }
+  ],
+  "mediaCatalog": "../map-data.js",
+  "webDerivatives": "Photos are auto-oriented, resized to at most 2200 pixels, and encoded as WebP; originals are retained. Thumbnail cards load 360×300 WebP previews. MP4 remuxes retain the original H.264 video and AAC audio without re-encoding and use streaming-friendly headers.",
+  "cleanupReport": "../cleanup-report.json",
+  "inferredPlacements": [
+    {
+      "id": "balfrin-through-the-village",
+      "position": [
+        46.176,
+        7.826
+      ],
+      "place": "Southern Gasenried approach toward the Riedbach",
+      "reason": "Proposed camera area: paved village approach, chalet and larch-covered valley sides looking toward the Riedgletscher. SAC places the hut approach through southern Gasenried and Schalbettu. The specific chalet/bridge is not independently identified.",
+      "sourceURLs": [
+        "https://www.sac-cas.ch/de/huetten-und-touren/sac-tourenportal/bordierhuette-sac-2147000038/berg-und-alpinwandern/von-gasenried-ueber-alpja-558/",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Gasenried&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.115%2C7.815%2C46.185%2C7.89&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "approach",
+      "position": [
+        46.167,
+        7.831
+      ],
+      "place": "Larch forest between Gasenried and Alpja",
+      "reason": "Proposed camera area: skis carried on a dry larch-forest trail, below continuous snow. The documented Bordier approach climbs through larch woodland toward Alpja; this point lies below the open Alpja pasture, away from the summit-area pins.",
+      "sourceURLs": [
+        "https://www.sac-cas.ch/de/huetten-und-touren/sac-tourenportal/bordierhuette-sac-2147000038/berg-und-alpinwandern/von-gasenried-ueber-alpja-558/",
+        "https://bordierhuette.com/anfahrt-und-zustieg/",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.115%2C7.815%2C46.185%2C7.89&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "balfrin-light-on-the-summits",
+      "position": [
+        46.138,
+        7.858
+      ],
+      "place": "Riedgletscher basin southeast of Bordierhütte",
+      "reason": "Proposed camera area: broad shaded snow foreground facing a high, heavily glaciated skyline. The view is consistent with the Riedgletscher/Nadelgrat setting above Bordierhütte; the exact viewpoint is unconfirmed.",
+      "sourceURLs": [
+        "https://www.sac-cas.ch/de/huetten-und-touren/sac-tourenportal/bordierhuette-sac-2147000038/berg-und-alpinwandern/",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Riedgletscher&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.115%2C7.815%2C46.185%2C7.89&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "bluebird",
+      "position": [
+        46.131,
+        7.873
+      ],
+      "place": "Upper Riedgletscher below Balfrin’s southwest flank",
+      "reason": "Proposed camera area: open high snow bowl beneath steep rock, plausibly on the upper glacier side of the Balfrin ski outing. The chosen point is below the summit/ridge on snow terrain, not on the summit itself; individual rock features are not confirmed.",
+      "sourceURLs": [
+        "https://www.sac-cas.ch/de/huetten-und-touren/sac-tourenportal/bordierhuette-sac-2147000038/berg-und-alpinwandern/",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Balfrin&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Riedpass&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.115%2C7.815%2C46.185%2C7.89&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "powder",
+      "position": [
+        46.153,
+        7.838
+      ],
+      "place": "Lower Riedgletscher forefield above Alpja",
+      "reason": "Proposed camera area: a narrow surviving ribbon of spring snow confined by bare moraine-like rubble. This fits the lower glacier forefield between Bordierhütte and Alpja better than the broad high glacier. The exact gully is inferred.",
+      "sourceURLs": [
+        "https://www.sac-cas.ch/de/huetten-und-touren/sac-tourenportal/bordierhuette-sac-2147000038/berg-und-alpinwandern/von-gasenried-ueber-alpja-558/",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Alpja&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.115%2C7.815%2C46.185%2C7.89&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "arolla-snow-and-stone",
+      "position": [
+        46.029,
+        7.444
+      ],
+      "place": "Upper Fontanesses basin below La Cassorte and La Roussette",
+      "reason": "Proposed camera area: steep rock ribs and snow-filled gullies viewed across an upper ski basin. The official map places this combination of cliffs and open snow immediately above Les Fontanesses. No specific couloir identification is claimed.",
+      "sourceURLs": [
+        "https://www.evolene-region.ch/fr/live-arolla",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Les+Fontanesses&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=La+Cassorte&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.005%2C7.425%2C46.045%2C7.49&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "arolla-lines-in-the-snow",
+      "position": [
+        46.027,
+        7.447
+      ],
+      "place": "Fontanesses bowl west of Mont Dolin",
+      "reason": "Proposed camera area: a skier exits a rock-bounded gully onto a snow apron. It is the same outing and a similar rock formation to Snow and stone, so this stays nearby in the upper Fontanesses bowl rather than elsewhere in the valley.",
+      "sourceURLs": [
+        "https://www.evolene-region.ch/fr/live-arolla",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Mont+Dolin&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.005%2C7.425%2C46.045%2C7.49&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "arolla-ready-to-go",
+      "position": [
+        46.029,
+        7.449
+      ],
+      "place": "Upper Fontanesses 3 lift area",
+      "reason": "Proposed camera area: skiers beside a safety net on a maintained ski slope, with high rocky peaks behind. A lift-area placement near the upper Fontanesses 3 endpoint fits this evidence and the official lift extent. The exact fence is unconfirmed.",
+      "sourceURLs": [
+        "https://www.evolene-region.ch/fr/espace-dent-blanche-secteur-arolla-fp42182",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Fontanesses+3&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.005%2C7.425%2C46.045%2C7.49&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "grimentz-first-turns",
+      "position": [
+        46.192,
+        7.541
+      ],
+      "place": "Eastern bowl beneath Roc d’Orzival",
+      "reason": "Proposed camera area: powder turns beneath a rounded ridge broken by rock outcrops. The eastern Orzival/Abondance bowl is a plausible nearby resort-side setting, grounded in the official terrain map and freeride-area description. Specific rocks are unconfirmed.",
+      "sourceURLs": [
+        "https://www.valais.ch/fr/explorer/activites/ski-snowboard/itineraires-de-freeride-securises/roc-d-orzival",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Roc+d+Orzival&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.16%2C7.51%2C46.205%2C7.565&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "grimentz-another-line",
+      "position": [
+        46.191,
+        7.542
+      ],
+      "place": "Adjacent lower part of the Orzival bowl",
+      "reason": "Proposed camera area: the same rocky bowl and tracks as First turns, with the skier farther down. This stays only about 135 m away to represent a nearby viewpoint, rather than implying a different valley or summit.",
+      "sourceURLs": [
+        "https://www.valais.ch/fr/explorer/activites/ski-snowboard/itineraires-de-freeride-securises/roc-d-orzival",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Roc+d+Orzival&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.16%2C7.51%2C46.205%2C7.565&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "grimentz-between-the-clouds",
+      "position": [
+        46.184,
+        7.537
+      ],
+      "place": "Snowy shoulder in the Tsarva–Bendolla sector",
+      "reason": "Proposed camera area: an open rolling ridge overlooking a forested valley, with lift infrastructure visible lower left. The Tsarva/Bendolla shoulder gives a plausible lower resort-side position separate from the rocky descent bowl. Exact ridge identification remains uncertain.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Tsarva&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Bendolla&type=locations&origins=gazetteer&sr=4326&limit=5",
+        "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=ch.swisstopo.pixelkarte-farbe&STYLES=&CRS=EPSG%3A4326&BBOX=46.16%2C7.51%2C46.205%2C7.565&WIDTH=1000&HEIGHT=1000&FORMAT=image%2Fpng"
+      ]
+    },
+    {
+      "id": "aletsch-into-the-white",
+      "position": [
+        46.505,
+        8.036
+      ],
+      "place": "Konkordiaplatz glacier basin",
+      "reason": "The roped group in featureless snow is plausibly crossing the broad glacier junction. This is an educated placement within the user-confirmed Aletsch area, not identification of the camera point.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Konkordiaplatz&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://www.sac-cas.ch/de/huetten-und-touren/sac-tourenportal/gruenhornluecke-4775/skitouren/"
+      ]
+    },
+    {
+      "id": "panorama",
+      "position": [
+        46.5005,
+        8.0532
+      ],
+      "place": "Konkordiahütte panorama area",
+      "reason": "A raised viewpoint beside the glacier basin suits the evening panorama of high peaks. The hut vicinity provides a plausible stopping point at the recorded evening time; identification remains uncertain.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Konkordiah%C3%BCtte&type=locations&origins=gazetteer&limit=3&sr=4326"
+      ]
+    },
+    {
+      "id": "glacier",
+      "position": [
+        46.514,
+        8.067
+      ],
+      "place": "Grüneggfirn below the Grünhornlücke",
+      "reason": "Broad downhill glacier terrain beneath high rock and ice walls fits the western approach to Grünhornlücke above Konkordiaplatz. This is a terrain-based guess, not a peak identification.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Gr%C3%BCneggfirn&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://www.sac-cas.ch/de/huetten-und-touren/sac-tourenportal/gruenhornluecke-4775/skitouren/"
+      ]
+    },
+    {
+      "id": "binntal-spring-crossing",
+      "position": [
+        46.377,
+        8.258
+      ],
+      "place": "Upper Binntal above Freichi",
+      "reason": "The meltwater opening and modest snow slopes suit the upper-valley approach above Freichi, at lower elevation than the summit descent and hut.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Freichi&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://www.sac-cas.ch/de/huetten-und-touren/sac-tourenportal/binntalhuette-sac-2147000035/berg-und-alpinwandern/"
+      ]
+    },
+    {
+      "id": "binntal-back-to-the-hut",
+      "position": [
+        46.4146,
+        8.3248
+      ],
+      "place": "Rifugio Claudio e Bruno vicinity",
+      "reason": "The plain red shutters, long grey metal roof, stone terrace and mountain backdrop resemble Rifugio Claudio e Bruno, confirmed as a plausible regional hut by comparison with the SAC photograph. Camera position is estimated just outside the hut; this identification is not certain.",
+      "sourceURLs": [
+        "https://www.sac-cas.ch/en/huts-and-tours/sac-route-portal/rifugio-claudio-e-bruno-2147436093/",
+        "https://www.distrettolaghi.it/it/ospitalita/rifugio-claudio-e-bruno"
+      ]
+    },
+    {
+      "id": "binntal-down-in-the-valley",
+      "position": [
+        46.364,
+        8.1825
+      ],
+      "place": "Binn village opposite Wilere",
+      "reason": "The white clock-tower church and timber houses above a meadow resemble the St Michael/Wilere area of Binn. The estimated viewpoint is across the village valley, rather than at a mountain summit.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Wilere+Binn&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Binn&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://www.landschaftspark-binntal.ch/de/landschaftspark-binntal/kultur-kulturlandschaft/ortsbilder-und-kapellen"
+      ]
+    },
+    {
+      "id": "binntal-last-light",
+      "position": [
+        46.3858,
+        8.2785
+      ],
+      "place": "Slopes near Mittlenberghütte",
+      "reason": "The sunset view looks down a long open valley from snowy terrain with exposed rocks, making the hut-side slopes in upper Binntal a plausible evening viewpoint. The exact skyline is not identified.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Mittlenbergh%C3%BCtte&type=locations&origins=gazetteer&limit=3&sr=4326"
+      ]
+    },
+    {
+      "id": "high-descent",
+      "position": [
+        46.42,
+        8.313
+      ],
+      "place": "Blinnenhorn southern snow slopes",
+      "reason": "The broad high descent above distant valleys is plausibly on the Blinnenhorn side above Rifugio Claudio e Bruno, consistent with the same-day hut photograph. This is an educated terrain placement, not a reconstructed route.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Blinnenhorn&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://www.sac-cas.ch/en/huts-and-tours/sac-route-portal/rifugio-claudio-e-bruno-2147436093/"
+      ]
+    },
+    {
+      "id": "ridge-crossing",
+      "position": [
+        46.65,
+        8.664
+      ],
+      "place": "Pazolastock eastern approach ridge",
+      "reason": "The exposed snowy ridge is consistent with the eastern approach to Pazolastock. The same-day portrait GPS fixes the summit area; its later timestamp supports placing this ridge photograph on the approach.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Pazolastock&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://www.sac-gotthard.ch/wp-content/uploads/2026/02/6-2025-Der-Gotthard_low.pdf"
+      ]
+    },
+    {
+      "id": "oberalp-descent",
+      "position": [
+        46.651,
+        8.67
+      ],
+      "place": "Pazolastock eastern snow slopes",
+      "reason": "This film is dated shortly after the portrait at Pazolastock. The open ski slope is therefore estimated east below that summit on its Oberalp-facing slopes; the film itself lacks a distinctive landmark.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Pazolastock&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://www.sac-gotthard.ch/wp-content/uploads/2026/02/6-2025-Der-Gotthard_low.pdf"
+      ]
+    },
+    {
+      "id": "palu-through-the-rocks",
+      "position": [
+        46.41,
+        9.8215
+      ],
+      "place": "Corvatsch to Vadret dal Murtel rock passage",
+      "reason": "The fixed-rope rock passage and the subsequent hut photograph fit the documented Corvatsch-to-Coaz approach, which descends a rocky step between Vadret da l’Alp Ota and Vadret dal Murtel. The exact step location is approximate.",
+      "sourceURLs": [
+        "https://www.sac-cas.ch/de/huetten-und-touren/sac-tourenportal/chamanna-coaz-cas-2147000065/skitouren/von-surlej-bergstation-corvatsch-3233/",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Vadret+dal+Murtel&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Vadret+da+l%E2%80%99Alp+Ota&type=locations&origins=gazetteer&limit=3&sr=4326"
+      ]
+    },
+    {
+      "id": "palu-a-hut-in-the-mountains",
+      "position": [
+        46.3832,
+        9.8352
+      ],
+      "place": "Chamanna Coaz viewed from above",
+      "reason": "The adjoining rounded stone buildings with solar roofs, long frozen lake and view down Val Roseg are consistent with Chamanna Coaz. The official hut and gazetteer establish the place; the camera point is estimated slightly above it.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Chamanna+Coaz&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://sacraetia.ch/huetten-sanierung/sanierungsprojekt-coazhuette/",
+        "https://www.coaz.ch/"
+      ]
+    },
+    {
+      "id": "palu-across-the-plateau",
+      "position": [
+        46.369,
+        9.867
+      ],
+      "place": "Upper glacier below Fuorcla da la Sella",
+      "reason": "A broad snowy glacier plateau in low cloud is plausible on the Coaz-to-Sella crossing. The date follows the hut day, and this is a documented link in a Bernina ski traverse; it remains a rough placement.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Fuorcla+da+la+Sella&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://www.alpenverein.de/artikel/skitouren-bernina_91d50f58-7f27-4442-81a1-8ac1dc370633"
+      ]
+    },
+    {
+      "id": "palu-evening-on-the-peaks",
+      "position": [
+        46.3447,
+        9.9054
+      ],
+      "place": "Rifugio Marinelli panorama area",
+      "reason": "An evening viewpoint near Rifugio Marinelli plausibly looks toward the rocky Bernina/Musella skyline after the Sella glacier crossing. The photo date follows the Coaz approach; the specific skyline and overnight stop remain unconfirmed.",
+      "sourceURLs": [
+        "https://www.prenotarifugi.cai.it/en/detail/?id=5739",
+        "https://www.alpenverein.de/artikel/skitouren-bernina_91d50f58-7f27-4442-81a1-8ac1dc370633"
+      ]
+    },
+    {
+      "id": "ridge",
+      "position": [
+        46.379,
+        9.967
+      ],
+      "place": "Piz Palü eastern summit ridge",
+      "reason": "The narrow snow crest fits the Palü summit ridge reached from the east. The folder confirms the tour area, but the photo alone does not establish which point on the ridge.",
+      "sourceURLs": [
+        "https://api3.geo.admin.ch/rest/services/api/SearchServer?searchText=Piz+Pal%C3%BC&type=locations&origins=gazetteer&limit=3&sr=4326",
+        "https://www.alpenverein.de/artikel/skitouren-bernina_91d50f58-7f27-4442-81a1-8ac1dc370633"
+      ]
+    }
+  ],
+  "placementCoverageCheck": {
+    "mapYear": 1930,
+    "zoomLevels": [
+      13,
+      16
+    ],
+    "mediaIds": [
+      "aletsch-into-the-white",
+      "panorama",
+      "glacier",
+      "binntal-spring-crossing",
+      "binntal-back-to-the-hut",
+      "binntal-down-in-the-valley",
+      "binntal-last-light",
+      "high-descent",
+      "ridge-crossing",
+      "oberalp-descent",
+      "palu-through-the-rocks",
+      "palu-a-hut-in-the-mountains",
+      "palu-across-the-plateau",
+      "palu-evening-on-the-peaks",
+      "ridge"
+    ],
+    "result": "All sampled historical tiles contain opaque map imagery, including the proposed Italian-side hut and glacier locations."
+  }
+}
