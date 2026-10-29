@@ -36,6 +36,8 @@
   const byMedia = id => data.media.find(item => item.id === id);
   const tourMedia = id => data.media.filter(item => item.tour === id);
   const thumb = item => 'skiing/thumbs/' + item.id + '.webp';
+  const mediaUrl = (item, path = item.src) => item.type === 'video' && data.videoVersion
+    ? path + '?v=' + encodeURIComponent(data.videoVersion) : path;
   const mobile = () => window.innerWidth <= 700;
   const zoomStep = 1.5;
   const tourZoom = 12;
@@ -383,19 +385,19 @@
     viewerPhoto.hidden = item.type !== 'photo';
     viewerVideo.hidden = item.type !== 'video';
     if (item.type === 'photo') { viewerPhoto.src = item.src; viewerPhoto.alt = item.alt; }
-    else { viewerVideo.src = item.src; viewerVideo.poster = item.poster; viewerVideo.setAttribute('aria-label', item.alt); }
+    else { viewerVideo.src = mediaUrl(item); viewerVideo.poster = item.poster; viewerVideo.setAttribute('aria-label', item.alt); }
     document.querySelector('#viewer-tour').textContent = byTour(item.tour).name + ' / ' + (item.type === 'video' ? 'Moving picture' : 'Photograph');
     document.querySelector('#viewer-title').textContent = item.title;
     document.querySelector('#viewer-location').textContent = byTour(item.tour).region;
     document.querySelector('.viewer-note').textContent = item.alt;
-    document.querySelector('.viewer-original').href = item.source || item.src;
+    document.querySelector('.viewer-original').href = mediaUrl(item, item.source || item.src);
     const collection = tourMedia(item.tour);
     document.querySelector('.viewer-count').textContent = String(collection.indexOf(item) + 1).padStart(2, '0') + ' / ' + String(collection.length).padStart(2, '0');
   }
   function openMedia(id, trigger = null, updateHistory = true) {
     const item = byMedia(id);
     if (!item) return;
-    if (typeof viewer.showModal !== 'function') { window.location.href = item.src; return; }
+    if (typeof viewer.showModal !== 'function') { window.location.href = mediaUrl(item); return; }
     if (selectedTour !== item.tour) selectTour(item.tour, { history: false });
     opener = trigger || document.activeElement;
     displayMedia(id);

@@ -237,5 +237,11 @@
     "skiing/portrait.jpg",
     "skiing/WhatsApp Image 2023-12-04 at 21.01.24.jpeg",
     "skiing/VID_20231217_134032.mov"
+  ],
+  "subsequentEdits": [
+    {
+      "date": "2026-10-30",
+      "change": "Removed audio tracks from the four published films and their linked MOV downloads at the owner’s request. Video streams and camera metadata retained; pre-edit files with audio archived locally."
+    }
   ]
 }

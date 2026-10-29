@@ -678,5 +678,6 @@ window.SKI_ATLAS = {
       "accuracy": "approximate",
       "capturedAtMetadata": "2026:04:06 10:39:20"
     }
-  ]
+  ],
+  "videoVersion": "silent-20261030"
 };

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29",
+  "updated": "2026-10-30",
   "attribution": "©swisstopo",
   "interactiveMap": {
     "provider": "swisstopo / geo.admin.ch",
@@ -183,7 +183,7 @@
     }
   ],
   "mediaCatalog": "../map-data.js",
-  "webDerivatives": "Photos are auto-oriented, resized to at most 2200 pixels, and encoded as WebP; originals are retained. Thumbnail cards load 360×300 WebP previews. MP4 remuxes retain the original H.264 video and AAC audio without re-encoding and use streaming-friendly headers.",
+  "webDerivatives": "Photos are auto-oriented, resized to at most 2200 pixels, and encoded as WebP; originals are retained. Thumbnail cards load 360×300 WebP previews. The four published MP4s and their linked MOV downloads have no audio tracks. Their original H.264 video streams, orientation, timing and camera metadata are preserved without re-encoding. MP4s use streaming-friendly headers.",
   "cleanupReport": "../cleanup-report.json",
   "inferredPlacements": [
     {
